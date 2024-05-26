@@ -119,14 +119,18 @@ class CartController extends Controller
         $this->checkCart();
         $list_category = Category::get();
         $list_brand = Brand::get();
+        $check_address = AddressCustomer::where('idCustomer', Session::get('idCustomer'))->first();
 
         $list_pd_cart = Cart::join('product','product.idProduct','=','cart.idProduct')
             ->join('productimage','productimage.idProduct','cart.idProduct')
             ->join('product_attribute','product_attribute.idProAttr','=','cart.idProAttr')
             ->where('idCustomer',Session::get('idCustomer'))->get();
 
-        return view("shop.cart.payment")->with(compact('list_category','list_brand','list_pd_cart'));
+        return view("shop.cart.payment")->with(compact('list_category','list_brand','list_pd_cart','check_address'));
     }
+    
+
+
 
     // Chuyển đến trang giỏ hàng trống
     public function empty_cart(){

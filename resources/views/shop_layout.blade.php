@@ -14,11 +14,11 @@
 
     <!-- CSS
 	============================================ -->
-
+{{--  --}}
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('public/kidolshop/css/vendor/bootstrap.min.css')}}">
 
-    <!-- Icon Font CSS -->
+    {{-- <!-- Icon Font CSS --> --}}
     <link rel="stylesheet" href="{{asset('public/kidolshop/css/vendor/plazaicon.css')}}">
     <link rel="stylesheet" href="{{asset('public/kidolshop/css/vendor/themify-icons.css')}}">
     <link rel="stylesheet" href="{{asset('public/kidolshop/css/vendor/font-awesome.min.css')}}">
@@ -35,9 +35,9 @@
 
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="{{asset('public/kidolshop/css/style.css')}}">
-    
+
     <style>
-      
+
         @import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
 
         .aha-customer-chat-plugin-mobile .ahachat-help-mb-container{
@@ -48,7 +48,7 @@
     <!-- Modernizer JS -->
     <script src="{{asset('public/kidolshop/js/vendor/modernizr-3.6.0.min.js')}}"></script>
     <!-- jQuery JS -->
-    <script src="{{asset('public/kidolshop/js/vendor/jquery-3.3.1.min.js')}}" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
+    <script src="{{asset('public/kidolshop/js/vendor/jquery-3.3.1.min.js')}}" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
         crossorigin="anonymous">
     </script>
     <script src="{{asset('public/kidolshop/js/jquery.preloadinator.min.js')}}"></script>
@@ -109,7 +109,7 @@
         </div>
 
         <!--Header Section Start-->
-        <?php 
+        <?php
             use App\Http\Controllers\CartController;
             use App\Http\Controllers\ProductController;
             use Illuminate\Support\Facades\Session;
@@ -209,11 +209,11 @@
                                         @endif
                                     </div>
                                     <div class="header-account-list dropdown mini-cart">
-                                        <?php 
+                                        <?php
                                             $get_cart_header = CartController::get_cart_header();
                                             $sum_cart = $get_cart_header['sum_cart'];
-                                            $carts = $get_cart_header['get_cart_header']; 
-                                            $Total = 0; 
+                                            $carts = $get_cart_header['get_cart_header'];
+                                            $Total = 0;
                                         ?>
                                         @if($sum_cart > 0)
                                             <a href="#" role="button" data-toggle="dropdown">
@@ -316,11 +316,11 @@
                                     @endif
                                 </div>
                                 <div class="header-account-list dropdown mini-cart">
-                                    <?php 
+                                    <?php
                                         $get_cart_header = CartController::get_cart_header();
                                         $sum_cart = $get_cart_header['sum_cart'];
-                                        $carts = $get_cart_header['get_cart_header']; 
-                                        $Total = 0; 
+                                        $carts = $get_cart_header['get_cart_header'];
+                                        $Total = 0;
                                     ?>
                                     @if($sum_cart > 0)
                                         <a href="#" role="button" data-toggle="dropdown">
@@ -713,7 +713,7 @@
                     <div class="modal-body modal-compare-body row">
                         <div class="product-item col-md-3 select-pd" id="product-item-41" data-id="41">
                             <div class="product-image mb-3" id="product-image-41">
-                                <label class="abc" for="chk-pd-41"><img src="{{asset('public/kidolshop/images/no_cart.png')}}" class="rounded w-100 img-fluid"></label>       
+                                <label class="abc" for="chk-pd-41"><img src="{{asset('public/kidolshop/images/no_cart.png')}}" class="rounded w-100 img-fluid"></label>
                                 <div class="product-title">
                                     <div class="product-name" style="height:30px ;overflow:hidden;display:-webkit-box;">
                                         <input type="checkbox" class="checkstatus d-none" id="chk-pd-41" name="chk_product[]" value="41" data-id="41" data-name="Kem chống nắng có màu che phủ tự nhiên Lancome UV Expert BB COMPLETE 2 SPF 50+ PA++++ 30ml – Tone tự nhiên" data-price="1550000" data-img="lc6.png">
@@ -733,7 +733,7 @@
             </div>
         </div> -->
         <div class="modal fade bd-example-modal-sm modal-Compare" id="modal-Compare" tabindex="-1" role="dialog"  aria-hidden="true">
-        
+
         </div>
         <!-- Modal Compare -->
     </div>
@@ -814,8 +814,8 @@
             animation: 'fadeOut',
             animationDuration: 400
         });
-        
-        $(document).ready(function(){  
+
+        $(document).ready(function(){
             APP_URL = '{{url('/')}}' ;
 
             // Quick view sản phẩm
@@ -838,7 +838,7 @@
             $('.add-to-wishlist').on('click',function(){
                 var idProduct = $(this).data('id');
                 var _token = $('input[name="_token"]').val();
-                
+
                 if($('#idCustomer').val() == ""){
                     window.location.href = '../kidolshop/login';
                 }else{
@@ -850,7 +850,7 @@
                             $('.modal-AddToWishList').modal('show');
                         }
                     });
-                } 
+                }
             });
 
             // Xoá 1 sp trong giỏ hàng
@@ -884,7 +884,7 @@
 
                         $("#search-pd-compare").on("keyup", function() {
                             var value = $(this).val();
-                            
+
                             $.ajax({
                                 url: '{{url("/modal-compare-search")}}',
                                 method: 'POST',
@@ -913,7 +913,7 @@
                                 else if($(this).is(":not(:checked)")){
                                     $("#product-image-"+product_id).css("border","none");
                                     $("#product-"+product_id).val("	");
-                                    $(document).ready(function(){  
+                                    $(document).ready(function(){
                                         var $fields = $(this).find('input[name="chk_product[]"]:checked');
                                         if (!$fields.length) {
                                             $(".btn-compare").css("pointer-events","none");
@@ -930,10 +930,10 @@
                             }).get();
                             var cmp_pro = '';
 
-                            for(i = 0; i < chk_product.length; i++){  
+                            for(i = 0; i < chk_product.length; i++){
                                 cmp_pro += ',' + chk_product[i];
                             }
-                            window.location.href = '../kidolshop/compare?product=' +idProduct+cmp_pro;
+                            window.location.href = '../compare?product=' +idProduct+cmp_pro;
                         });
                     }
                 });
@@ -969,16 +969,16 @@
             var category = [], tempArrayCat = [], brand = [], tempArrayBrand = [];
             url = window.location.href;
 
-            $(".filter-product").on("click", function() 
+            $(".filter-product").on("click", function()
             {
                 var sort_by = $('.select-input__sort').data("sort");
                 var min_price = $('.input-filter-price.min').val();
                 var max_price = $('.input-filter-price.max').val();
                 var min_price_filter = '';
                 var max_price_filter = '';
-                
+
                 if(url.indexOf("search?keyword=") != -1){
-                    var keyword = $('#keyword-link').val(); 
+                    var keyword = $('#keyword-link').val();
                     page = 'search?keyword=' +keyword;
                 }else page = 'store?show=all';
 
@@ -991,7 +991,7 @@
                     tempArrayCat.push($(this).val());
                 });
                 tempArrayCat.reverse();
-   
+
                 if(min_price != '' && max_price != '' && parseInt(min_price) > parseInt(max_price)) $('.alert-filter-price').removeClass("d-none");
                 else{
                     if(min_price != '') min_price_filter = '&priceMin=' + min_price;
@@ -1038,7 +1038,7 @@
                     if(url.indexOf("&sort_by") != -1){
                         split_url = url.split("&sort_by");
                         if(url.indexOf("&price") != -1){
-                            split_url_price = url.split("&price");                   
+                            split_url_price = url.split("&price");
                             window.location.href = split_url_price[0] + min_price_filter + max_price_filter + "&sort_by" + split_url[1];
                         }
                         else window.location.href = split_url[0] + min_price_filter + max_price_filter + "&sort_by" + split_url[1];
@@ -1047,7 +1047,7 @@
                         if(url.indexOf("?show=all") != -1 || url.indexOf("?keyword") != -1)
                             window.location.href = split_url[0] + min_price_filter + max_price_filter;
                         else window.location.href = url + '?show=all' + min_price_filter + max_price_filter;
-                    } 
+                    }
                 }
             });
         });

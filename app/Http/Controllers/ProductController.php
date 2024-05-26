@@ -58,7 +58,7 @@ class ProductController extends Controller
             $name_attribute = ProductAttriBute::join('attribute_value','attribute_value.idAttrValue','=','product_attribute.idAttrValue')
                 ->join('attribute','attribute.idAttribute','=','attribute_value.idAttribute')
                 ->where('product_attribute.idProduct', $idProduct)->first();
-            
+
             $list_attribute = Attribute::get();
             $list_category = Category::get();
             $list_brand = Brand::get();
@@ -85,7 +85,7 @@ class ProductController extends Controller
         public function edit_sale($idSale, $idProduct){
             $sale_product = SaleProduct::join('product','product.idProduct','=','saleproduct.idProduct')
                 ->join('productimage','productimage.idProduct','=','product.idProduct')->where('idSale',$idSale)->first();
-            
+
             return view("admin.product.sale.edit-sale")->with(compact('sale_product'));
         }
 
@@ -128,7 +128,7 @@ class ProductController extends Controller
                 $product->ProductSlug = $data['ProductSlug'];
                 $get_image = $request->file('ImageName');
                 $timestamp = now();
-                
+
                 $product->save();
                 $get_pd = Product::where('created_at',$timestamp)->first();
 
@@ -215,7 +215,7 @@ class ProductController extends Controller
                     );
                     ProductAttriBute::insert($data_all);
                 }
-                
+
                 // Thêm hình ảnh vào table ProductImage
                 if($request->file('ImageName')){
                     $get_image = $request->file('ImageName');
@@ -228,13 +228,13 @@ class ProductController extends Controller
                         $images[] = $new_image;
                     }
 
-                    // Xoá hình cũ trong csdl và trong folder 
+                    // Xoá hình cũ trong csdl và trong folder
                     $get_old_mg = ProductImage::where('idProduct', $idProduct)->first();
                     foreach(json_decode($get_old_mg->ImageName) as $old_img){
                         Storage::delete('public/kidoldash/images/product/'.$old_img);
                     }
                     ProductImage::where('idProduct', $idProduct)->delete();
-                    
+
                     $product_image->ImageName=json_encode($images);
                     $product_image->idProduct = $idProduct;
                     $product_image->save();
@@ -303,7 +303,7 @@ class ProductController extends Controller
             if($count_check >= 1){
                 $check_time_sale = SaleProduct::join('product','product.idProduct','=','saleproduct.idProduct')
                 ->where('saleproduct.idProduct',$idProduct)->whereNotIn('idSale',[$idSale])->get();
-            
+
                 foreach($check_time_sale as $check){
                     if(($check['SaleStart'] <= $data['SaleStart'] && $data['SaleStart'] <= $check['SaleEnd']) || ($check['SaleStart'] <= $data['SaleEnd'] && $data['SaleEnd'] <= $check['SaleEnd'])){
                         return redirect()->back()->with('error', 'Sửa khuyến mãi thất bại, sản phẩm này đã có khuyến mãi trong thời gian '.$check['SaleStart'].' đến '.$check['SaleEnd'].'.');
@@ -377,23 +377,23 @@ class ProductController extends Controller
     /* ---------- End Admin ---------- */
 
     /* ---------- Shop ---------- */
-    
+
         // Chuyển đến trang chi tiết sản phẩm
         public function show_product_details($ProductSlug){
             $list_category = Category::get();
             $list_brand = Brand::get();
 
             $this_pro = Product::where('ProductSlug',$ProductSlug)->first();
-            
+
             if($this_pro->StatusPro != '0'){
                 $viewer = new Viewer();
-                
+
                 if(Session::get('idCustomer') == '') $idCustomer = session()->getId();
                 else $idCustomer = (string)Session::get('idCustomer');
-                
+
                 $viewer->idCustomer = $idCustomer;
                 $viewer->idProduct = $this_pro->idProduct;
-                
+
                 if(Viewer::where('idCustomer',$idCustomer)->where('idProduct',$this_pro->idProduct)->count() == 0){
                     if(Viewer::where('idCustomer',$idCustomer)->count() >= 3){
                         $idView = Viewer::where('idCustomer',$idCustomer)->orderBy('idView','asc')->take(1)->delete();
@@ -404,15 +404,15 @@ class ProductController extends Controller
                 $idBrand = $this_pro->idBrand;
                 $idCategory = $this_pro->idCategory;
                 $count_wish = WishList::where('idProduct',$this_pro->idProduct)->count();
-    
+
                 $list_pd_attr = ProductAttriBute::join('attribute_value','attribute_value.idAttrValue','=','product_attribute.idAttrValue')
                     ->join('attribute','attribute.idAttribute','=','attribute_value.idAttribute')
                     ->where('product_attribute.idProduct', $this_pro->idProduct)->get();
-    
+
                 $name_attribute = ProductAttriBute::join('attribute_value','attribute_value.idAttrValue','=','product_attribute.idAttrValue')
                     ->join('attribute','attribute.idAttribute','=','attribute_value.idAttribute')
                     ->where('product_attribute.idProduct', $this_pro->idProduct)->first();
-    
+
                 $product = Product::join('productimage','productimage.idProduct','=','product.idProduct')->where('product.idProduct',$this_pro->idProduct)->first();
 
                 $list_related_products = Product::join('productimage','productimage.idProduct','=','product.idProduct')
@@ -423,7 +423,7 @@ class ProductController extends Controller
                 $list_related_products->where(function ($list_related_products) use ($idBrand, $idCategory){
                     $list_related_products->orWhere('idBrand',$idBrand)->orWhere('idCategory',$idCategory);
                 });
-                
+
                 $list_related_product = $list_related_products->get();
 
                 return view("shop.product.shop-single")->with(compact('list_category','list_brand','product','list_pd_attr','name_attribute','count_wish','list_related_product'));
@@ -463,7 +463,7 @@ class ProductController extends Controller
             }else if(isset($_GET['priceMax'])){
                 $list_pd_query->whereRaw('Price <= ?',$_GET['priceMax']);
             }
-            
+
             if(isset($_GET['sort_by'])){
                 if($_GET['sort_by'] == 'new') $list_pd_query->orderBy('created_at','desc');
                 else if($_GET['sort_by'] == 'old') $list_pd_query->orderBy('created_at','asc');
@@ -473,7 +473,7 @@ class ProductController extends Controller
                 else if($_GET['sort_by'] == 'price_desc') $list_pd_query->orderBy('Price','desc');
                 else if($_GET['sort_by'] == 'price_asc') $list_pd_query->orderBy('Price','asc');
             }else $list_pd_query->orderBy('created_at','desc');
-            
+
             $count_pd = $list_pd_query->count();
             $list_pd = $list_pd_query->paginate(15);
 
@@ -521,8 +521,8 @@ class ProductController extends Controller
                                     }else{
                                         $output .= '<span class="current-price">'.number_format($product->Price,0,',','.').'đ</span>
                                                 </div>';
-                                    }          
-                
+                                    }
+
                                     $output .=' <div>'.$product->ShortDes.'</div>
                                                 <div class="mt-3">
                                                     <a href="shop-single/'.$product->ProductSlug.'" class="btn btn-primary">Xem chi tiết</a>
@@ -553,7 +553,7 @@ class ProductController extends Controller
             $get_pd = Product::join('productimage','productimage.idProduct','=','product.idProduct')
                 ->where('StatusPro','1')->where('idCategory',$data['idCategory'])
                 ->whereNotIn('product.idProduct',[$data['idProduct']])->get();
-            
+
             $output .= '
                     <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable">
                         <div class="modal-content">
@@ -570,7 +570,7 @@ class ProductController extends Controller
                                 $image = json_decode($pd->ImageName)[0];
             $output .= '    <div class="product-item col-md-3 select-pd" id="product-item-'.$pd->idProduct.'" data-id="'.$pd->idProduct.'">
                                 <div class="product-image-compare mb-3" id="product-image-'.$pd->idProduct.'">
-                                    <label for="chk-pd-'.$pd->idProduct.'"><img src="public/storage/kidoldash/images/product/'.$image.'" class="rounded w-100 img-fluid"></label>       
+                                    <label for="chk-pd-'.$pd->idProduct.'"><img src="public/storage/kidoldash/images/product/'.$image.'" class="rounded w-100 img-fluid"></label>
                                     <div class="product-title-compare">
                                         <div class="product-name-compare text-center">
                                             <input type="checkbox" class="checkstatus d-none" id="chk-pd-'.$pd->idProduct.'" name="chk_product[]" value="'.$pd->idProduct.'" data-id="'.$pd->idProduct.'">
@@ -582,7 +582,7 @@ class ProductController extends Controller
                                 <input type="hidden" name="selected_product[]" id="product-'.$pd->idProduct.'" value="">
                             </div>';
                             }
-                            
+
             $output .= '    </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-round" style="color:#000; border: 1px solid #e6e6e6;" data-dismiss="modal">Đóng</button>
@@ -607,9 +607,9 @@ class ProductController extends Controller
                 $pds->where(function ($pds) use ($value){
                     $pds->whereRaw("MATCH (ProductName) AGAINST (?)", Product::fullTextWildcards($value));
                 });
-                
+
             $get_pd = $pds->get();
-                
+
             foreach($get_pd as $key => $pd){
                 $sale_pd = SaleProduct::where('idProduct',$pd->idProduct)->whereRaw('SaleStart < NOW()')->whereRaw('SaleEnd > NOW()')->first();
                 $SalePrice = $pd->Price;
@@ -617,7 +617,7 @@ class ProductController extends Controller
                 $image = json_decode($pd->ImageName)[0];
             $output .= '<div class="product-item col-md-3 select-pd" id="product-item-'.$pd->idProduct.'" data-id="'.$pd->idProduct.'">
                             <div class="product-image-compare mb-3" id="product-image-'.$pd->idProduct.'">
-                                <label for="chk-pd-'.$pd->idProduct.'"><img src="/public/storage/kidoldash/images/product/'.$image.'" class="rounded w-100 img-fluid"></label>       
+                                <label for="chk-pd-'.$pd->idProduct.'"><img src="/public/storage/kidoldash/images/product/'.$image.'" class="rounded w-100 img-fluid"></label>
                                 <div class="product-title-compare">
                                     <div class="product-name-compare text-center">
                                         <input type="checkbox" class="checkstatus d-none" id="chk-pd-'.$pd->idProduct.'" name="chk_product[]" value="'.$pd->idProduct.'" data-id="'.$pd->idProduct.'">
@@ -637,10 +637,10 @@ class ProductController extends Controller
             $value = $request->value;
 
             $output = '';
-            
-            $get_cat = Category::select('CategoryName')->where('CategoryName','like','%'.$value.'%')->limit(3)->get(); 
 
-            $get_brand = Brand::select('BrandName')->where('BrandName','like','%'.$value.'%')->limit(3)->get(); 
+            $get_cat = Category::select('CategoryName')->where('CategoryName','like','%'.$value.'%')->limit(3)->get();
+
+            $get_brand = Brand::select('BrandName')->where('BrandName','like','%'.$value.'%')->limit(3)->get();
 
             $pds = Product::join('productimage','productimage.idProduct','=','product.idProduct')
                 ->join('brand','brand.idBrand','=','product.idBrand')
@@ -688,9 +688,9 @@ class ProductController extends Controller
                     $image = json_decode($pd->ImageName)[0];
                     $output .='
                     <li class="search-product-item d-flex align-items-center">
-                        <a class="search-product-text" href="/../shop-single/'.$pd->ProductSlug.'">
+                        <a class="search-product-text" href="/kidolshop/shop-single/'.$pd->ProductSlug.'">
                             <div class="d-flex align-items-center">
-                                <img width="50" height="50" src="/../public/storage/kidoldash/images/product/'.$image.'" alt="">
+                                <img width="50" height="50" src="public/storage/kidoldash/images/product/'.$image.'" alt="">
                                 <span class="two-line ml-2">'.$pd->ProductName.'</span>
                             </div>
                         </a>

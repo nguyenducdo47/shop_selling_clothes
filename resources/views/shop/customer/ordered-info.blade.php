@@ -88,7 +88,7 @@
                                 <tr class="shipping">
                                     <td>Phí vận chuyển (Miễn phí vận chuyển cho đơn hàng trên 1.000.000đ)</td>
                                     <td class="text-right">
-                                            @if($ship > 0) {{number_format($ship,0,',','.')}}đ
+                                            @if($ship > 0) {{number_format(floatval($ship),0,',','.')}}đ
                                             @else {{$ship}} @endif
                                     </td>
                                 </tr>

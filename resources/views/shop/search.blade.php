@@ -99,8 +99,8 @@
                                         </a>
 
                                         <?php
-                                            $SalePrice = $pd->Price;  
-                                            $get_time_sale = ProductController::get_sale_pd($pd->idProduct); 
+                                            $SalePrice = $pd->Price;
+                                            $get_time_sale = ProductController::get_sale_pd($pd->idProduct);
                                         ?>
 
                                         @if($get_time_sale)
@@ -119,7 +119,7 @@
                                                 <!-- <li><a class="AddToCart-Single" data-id="{{$pd->idProduct}}" data-PriceNew="{{$SalePrice}}" data-token="{{csrf_token()}}" data-tooltip="tooltip" data-placement="left" title="Thêm vào giỏ hàng"><i class="icon-shopping-bag"></i></a></li> -->
                                                 <li><a class="add-to-compare" data-idcat="{{$pd->idCategory}}" id="{{$pd->idProduct}}" data-tooltip="tooltip" data-placement="left" title="So sánh"><i class="icon-sliders"></i></a></li>
                                                 <li><a class="add-to-wishlist" data-id="{{$pd->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Thêm vào danh sách yêu thích"><i class="icon-heart"></i></a></li>
-                                                <li><a class="quick-view-pd" data-id="{{$pd->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Xem nhanh"><i class="icon-eye"></i></a></li> 
+                                                <li><a class="quick-view-pd" data-id="{{$pd->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Xem nhanh"><i class="icon-eye"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -156,8 +156,8 @@
                                 </a>
 
                                 <?php
-                                    $SalePrice = $pd->Price;  
-                                    $get_time_sale = ProductController::get_sale_pd($pd->idProduct); 
+                                    $SalePrice = $pd->Price;
+                                    $get_time_sale = ProductController::get_sale_pd($pd->idProduct);
                                 ?>
 
                                 @if($get_time_sale)
@@ -173,7 +173,7 @@
 
                                 <div class="action-links">
                                     <ul>
-                                        <li><a class="quick-view-pd" data-id="{{$pd->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Xem nhanh"><i class="icon-eye"></i></a></li> 
+                                        <li><a class="quick-view-pd" data-id="{{$pd->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Xem nhanh"><i class="icon-eye"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -225,21 +225,21 @@
                     <div class="sidebar-categories">
                         <h3 class="widget-title">Theo danh mục</h3>
 
-                       
+
 
                         <ul class="categories-list">
                             @foreach($list_category as $key => $category)
                             <li class="d-flex align-items-center">
-                                <input 
-                                <?php 
+                                <input
+                                <?php
                                     if(isset($_GET['category'])){
                                         $idCategory = $_GET['category'];
                                         $category_arr = explode(",",$idCategory);
-                                        
+
                                         if(in_array($category->idCategory, $category_arr)) echo 'checked';
                                         else echo '';
-                                    } 
-                                ?> 
+                                    }
+                                ?>
                                 class="filter-product" type="checkbox" id="cat-{{$category->idCategory}}" data-filter="category" value="{{$category->idCategory}}" name="category-filter" style="width:15px;height:15px;">
                                 <label class="mb-0 ml-2" for="cat-{{$category->idCategory}}" style="font-size:15px;cursor:pointer;"><span style="position:relative; top:2px;">{{$category->CategoryName}}</span></label>
                                 <span style="margin-left:auto">({{App\Http\Controllers\CustomerController::count_cat_search($category->idCategory)}})</span>
@@ -256,16 +256,16 @@
                         <ul class="categories-list">
                         @foreach($list_brand as $key => $brand)
                             <li class="d-flex align-items-center">
-                                <input 
-                                <?php 
+                                <input
+                                <?php
                                     if(isset($_GET['brand'])){
                                         $idBrand = $_GET['brand'];
                                         $brand_arr = explode(",",$idBrand);
-                                        
+
                                         if(in_array($brand->idBrand, $brand_arr)) echo 'checked';
                                         else echo '';
-                                    } 
-                                ?> 
+                                    }
+                                ?>
                                 class="filter-product" type="checkbox" id="brand-{{$brand->idBrand}}" data-filter="brand" value="{{$brand->idBrand}}" name="brand-filter" style="width:15px;height:15px;">
                                 <label class="mb-0 ml-2" for="brand-{{$brand->idBrand}}" style="font-size:15px;cursor:pointer;"><span style="position:relative; top:2px;">{{$brand->BrandName}}</span></label>
                                 <span style="margin-left:auto">({{App\Http\Controllers\CustomerController::count_brand_search($brand->idBrand)}})</span>
@@ -352,8 +352,8 @@
                                         <h4 class="title"><a class="two-line" href="{{URL::to('/shop-single/'.$top_pd->ProductSlug)}}">{{$top_pd->ProductName}}</a></h4>
                                         <span class="text-primary h6">Đã bán: {{$top_pd->Sold}}</span>
                                         <?php
-                                            $SalePrice = $top_pd->Price;  
-                                            $get_time_sale = ProductController::get_sale_pd($top_pd->idProduct); 
+                                            $SalePrice = $top_pd->Price;
+                                            $get_time_sale = ProductController::get_sale_pd($top_pd->idProduct);
                                             if($get_time_sale) $SalePrice = $top_pd->Price - ($top_pd->Price/100) * $get_time_sale->Percent;
                                         ?>
                                         <div class="price-box">

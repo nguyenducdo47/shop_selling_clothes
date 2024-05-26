@@ -122,7 +122,7 @@
         <div class="product-wrapper">
             <div class="swiper-container product-active">
                 <div class="swiper-wrapper">
-                    <?php 
+                    <?php
                         if(Illuminate\Support\Facades\Session::get('idCustomer') == '') $idCustomer = session()->getId();
                         else $idCustomer = Illuminate\Support\Facades\Session::get('idCustomer');
                     ?>
@@ -139,8 +139,8 @@
                                     </a>
 
                                     <?php
-                                        $SalePrice = $product->Price;  
-                                        $get_time_sale = ProductController::get_sale_pd($product->idProduct); 
+                                        $SalePrice = $product->Price;
+                                        $get_time_sale = ProductController::get_sale_pd($product->idProduct);
                                     ?>
 
                                     @if($get_time_sale)
@@ -159,7 +159,7 @@
                                             <!-- <li><a class="AddToCart-Single" data-id="{{$product->idProduct}}" data-PriceNew="{{$SalePrice}}" data-token="{{csrf_token()}}" data-tooltip="tooltip" data-placement="left" title="Thêm vào giỏ hàng"><i class="icon-shopping-bag"></i></a></li> -->
                                             <li><a class="add-to-compare" data-idcat="{{$product->idCategory}}" id="{{$product->idProduct}}" data-tooltip="tooltip" data-placement="left" title="So sánh"><i class="icon-sliders"></i></a></li>
                                             <li><a class="add-to-wishlist" data-id="{{$product->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Thêm vào danh sách yêu thích"><i class="icon-heart"></i></a></li>
-                                            <li><a class="quick-view-pd" data-id="{{$product->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Xem nhanh"><i class="icon-eye"></i></a></li> 
+                                            <li><a class="quick-view-pd" data-id="{{$product->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Xem nhanh"><i class="icon-eye"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -195,8 +195,8 @@
                                     </a>
 
                                     <?php
-                                        $SalePrice = $product->Price;  
-                                        $get_time_sale = ProductController::get_sale_pd($product->idProduct); 
+                                        $SalePrice = $product->Price;
+                                        $get_time_sale = ProductController::get_sale_pd($product->idProduct);
                                     ?>
 
                                     @if($get_time_sale)
@@ -215,7 +215,7 @@
                                             <!-- <li><a class="AddToCart-Single" data-id="{{$product->idProduct}}" data-PriceNew="{{$SalePrice}}" data-token="{{csrf_token()}}" data-tooltip="tooltip" data-placement="left" title="Thêm vào giỏ hàng"><i class="icon-shopping-bag"></i></a></li> -->
                                             <li><a class="add-to-compare" data-idcat="{{$product->idCategory}}" id="{{$product->idProduct}}" data-tooltip="tooltip" data-placement="left" title="So sánh"><i class="icon-sliders"></i></a></li>
                                             <li><a class="add-to-wishlist" data-id="{{$product->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Thêm vào danh sách yêu thích"><i class="icon-heart"></i></a></li>
-                                            <li><a class="quick-view-pd" data-id="{{$product->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Xem nhanh"><i class="icon-eye"></i></a></li> 
+                                            <li><a class="quick-view-pd" data-id="{{$product->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Xem nhanh"><i class="icon-eye"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -277,8 +277,8 @@
                                 </a>
 
                                 <?php
-                                    $SalePrice = $new_pd->Price;  
-                                    $get_time_sale = ProductController::get_sale_pd($new_pd->idProduct); 
+                                    $SalePrice = $new_pd->Price;
+                                    $get_time_sale = ProductController::get_sale_pd($new_pd->idProduct);
                                 ?>
 
                                 @if($get_time_sale)
@@ -297,7 +297,7 @@
                                         <!-- <li><a class="AddToCart-Single" data-id="{{$new_pd->idProduct}}" data-PriceNew="{{$SalePrice}}" data-token="{{csrf_token()}}" data-tooltip="tooltip" data-placement="left" title="Thêm vào giỏ hàng"><i class="icon-shopping-bag"></i></a></li> -->
                                         <li><a class="add-to-compare" data-idcat="{{$new_pd->idCategory}}" id="{{$new_pd->idProduct}}" data-tooltip="tooltip" data-placement="left" title="So sánh"><i class="icon-sliders"></i></a></li>
                                         <li><a class="add-to-wishlist" data-id="{{$new_pd->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Thêm vào danh sách yêu thích"><i class="icon-heart"></i></a></li>
-                                        <li><a class="quick-view-pd" data-id="{{$new_pd->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Xem nhanh"><i class="icon-eye"></i></a></li> 
+                                        <li><a class="quick-view-pd" data-id="{{$new_pd->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Xem nhanh"><i class="icon-eye"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -402,8 +402,8 @@
                                         </a>
 
                                         <?php
-                                            $SalePrice = $bestsellers_pd->Price;  
-                                            $get_time_sale = ProductController::get_sale_pd($bestsellers_pd->idProduct); 
+                                            $SalePrice = $bestsellers_pd->Price;
+                                            $get_time_sale = ProductController::get_sale_pd($bestsellers_pd->idProduct);
                                         ?>
 
                                         @if($get_time_sale)
@@ -422,7 +422,7 @@
                                                 <!-- <li><a class="AddToCart-Single" data-id="{{$bestsellers_pd->idProduct}}" data-PriceNew="{{$SalePrice}}" data-token="{{csrf_token()}}" data-tooltip="tooltip" data-placement="left" title="Thêm vào giỏ hàng"><i class="icon-shopping-bag"></i></a></li> -->
                                                 <li><a class="add-to-compare" data-idcat="{{$bestsellers_pd->idCategory}}" id="{{$bestsellers_pd->idProduct}}" data-tooltip="tooltip" data-placement="left" title="So sánh"><i class="icon-sliders"></i></a></li>
                                                 <li><a class="add-to-wishlist" data-id="{{$bestsellers_pd->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Thêm vào danh sách yêu thích"><i class="icon-heart"></i></a></li>
-                                                <li><a class="quick-view-pd" data-id="{{$bestsellers_pd->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Xem nhanh"><i class="icon-eye"></i></a></li> 
+                                                <li><a class="quick-view-pd" data-id="{{$bestsellers_pd->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Xem nhanh"><i class="icon-eye"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -467,8 +467,8 @@
                                         </a>
 
                                         <?php
-                                            $SalePrice = $featured_pd->Price;  
-                                            $get_time_sale = ProductController::get_sale_pd($featured_pd->idProduct); 
+                                            $SalePrice = $featured_pd->Price;
+                                            $get_time_sale = ProductController::get_sale_pd($featured_pd->idProduct);
                                         ?>
 
                                         @if($get_time_sale)
@@ -487,7 +487,7 @@
                                                 <!-- <li><a class="AddToCart-Single" data-id="{{$featured_pd->idProduct}}" data-PriceNew="{{$SalePrice}}" data-token="{{csrf_token()}}" data-tooltip="tooltip" data-placement="left" title="Thêm vào giỏ hàng"><i class="icon-shopping-bag"></i></a></li> -->
                                                 <li><a class="add-to-compare" data-idcat="{{$featured_pd->idCategory}}" id="{{$featured_pd->idProduct}}" data-tooltip="tooltip" data-placement="left" title="So sánh"><i class="icon-sliders"></i></a></li>
                                                 <li><a class="add-to-wishlist" data-id="{{$featured_pd->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Thêm vào danh sách yêu thích"><i class="icon-heart"></i></a></li>
-                                                <li><a class="quick-view-pd" data-id="{{$featured_pd->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Xem nhanh"><i class="icon-eye"></i></a></li> 
+                                                <li><a class="quick-view-pd" data-id="{{$featured_pd->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Xem nhanh"><i class="icon-eye"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -524,8 +524,8 @@
                         <div class="swiper-wrapper">
                             @foreach($list_featured_pd as $key => $featured_pd)
                             <?php
-                                $SalePrice = $featured_pd->Price;  
-                                $get_time_sale = ProductController::get_sale_pd($featured_pd->idProduct); 
+                                $SalePrice = $featured_pd->Price;
+                                $get_time_sale = ProductController::get_sale_pd($featured_pd->idProduct);
                             ?>
                             @if($get_time_sale)
                             <div class="swiper-slide">
@@ -549,7 +549,7 @@
                                                 <!-- <li><a class="AddToCart-Single" data-id="{{$featured_pd->idProduct}}" data-PriceNew="{{$SalePrice}}" data-token="{{csrf_token()}}" data-tooltip="tooltip" data-placement="left" title="Thêm vào giỏ hàng"><i class="icon-shopping-bag"></i></a></li> -->
                                                 <li><a class="add-to-compare" data-idcat="{{$featured_pd->idCategory}}" id="{{$featured_pd->idProduct}}" data-tooltip="tooltip" data-placement="left" title="So sánh"><i class="icon-sliders"></i></a></li>
                                                 <li><a class="add-to-wishlist" data-id="{{$featured_pd->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Thêm vào danh sách yêu thích"><i class="icon-heart"></i></a></li>
-                                                <li><a class="quick-view-pd" data-id="{{$featured_pd->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Xem nhanh"><i class="icon-eye"></i></a></li> 
+                                                <li><a class="quick-view-pd" data-id="{{$featured_pd->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Xem nhanh"><i class="icon-eye"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>

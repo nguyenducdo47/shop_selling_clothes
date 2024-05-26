@@ -19,6 +19,8 @@
 </div>
 <!--Page Banner End-->
 
+
+
 <!--Cart Start-->
 <div class="cart-page section-padding-5">
     <div class="container">
@@ -27,7 +29,8 @@
             <div class="container__address-css"></div>
             <div class="container__address-content">
                 <div class="container__address-content-hd justify-content-between">
-                    <div><i class="container__address-content-hd-icon fa fa-map-marker"></i>Địa Chỉ Nhận Hàng</div>
+                    <div><i class="container__address-content-hd-icon fa fa-map-marker"></i>Địa Chỉ Nhận Hàng </div>
+
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddressModal">+ Thêm Địa Chỉ</button>
                 </div>
                 <ul class="shipping-list list-address">
@@ -146,15 +149,32 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="dynamic-checkout-button disabled ">
-                        <div class="checkout-checkbox">
+                    
+                    @if ($check_address)
+                    <div class="dynamic-checkout-button  ">
+                        {{-- <div class="checkout-checkbox">
                             <input type="checkbox" id="disabled" >
                             <label for="disabled"><span></span> Tôi đồng ý với các điều khoản và điều kiện </label>
-                        </div>    
+                        </div>  --}}
                         <div class="cart-total-btn checkout-btn">
                             <button type="submit" name="redirect" class="btn btn-primary btn-block btnorder" style="max-width:100%;">Đặt hàng</button>
                         </div>
+                        
                     </div>
+                    @else
+                    <div class="dynamic-checkout-button disabled ">
+                        {{-- <div class="checkout-checkbox">
+                            <input type="checkbox" id="disabled" >
+                            <label for="disabled"><span></span> Tôi đồng ý với các điều khoản và điều kiện </label>
+                        </div>  --}}
+                        <div class="cart-total-btn checkout-btn">
+                            <button type="submit" name="redirect" class="btn btn-primary btn-block btnorder" style="max-width:100%;">Đặt hàng</button>
+                        </div>
+                        
+                    </div>
+                    @endif
+                    
+                    
                 </div>
             </div>
         </div>
