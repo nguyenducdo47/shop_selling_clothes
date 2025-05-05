@@ -373,17 +373,17 @@ class AdminController extends Controller
                 ->selectRaw('sum(QuantityBuy) as Sold')
                 ->groupBy('ProductName', 'ImageName')->orderBy('Sold', 'DESC')->take(6)->get();
 
-        $output .= '<ul class="list-unstyled row mb-0">';
+        $output .= '<ul class="mb-0 list-unstyled row">';
         foreach ($list_topProduct as $key => $topProduct) {
             $image = json_decode($topProduct->ImageName)[0];
             $output .= '
                 <li class="col-lg-4 topPro-item">
-                    <div class="card card-block card-stretch mb-0">
+                    <div class="mb-0 card card-block card-stretch">
                         <div class="card-body">
-                            <div class="bg-warning-light rounded">
-                                <img src="public/storage/kidoldash/images/product/' . $image . '" class="style-img img-fluid m-auto p-3" alt="image">
+                            <div class="rounded bg-warning-light">
+                                <img src="public/storage/kidoldash/images/product/' . $image . '" class="p-3 m-auto style-img img-fluid" alt="image">
                             </div>
-                            <div class="style-text text-left mt-3">
+                            <div class="mt-3 text-left style-text">
                                 <h5 class="mb-1 limit-2-lines">' . $topProduct->ProductName . '</h5>
                                 <p class="mb-0">Đã bán: ' . number_format($topProduct->Sold, 0, ',', '.') . '</p>
                             </div>
