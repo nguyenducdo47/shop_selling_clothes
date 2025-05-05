@@ -25,31 +25,31 @@
                             echo '<span class="text-danger ml-3 mt-3">'.$error.'</span>';
                             Session::put('error', null);
                         }
-                    ?> 
+                    ?>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-12">  
-                                <label class="required">Sản phẩm</label>                    
+                            <div class="col-md-12">
+                                <label class="required">Sản phẩm</label>
                                 <div class="d-flex align-items-center mb-3">
                                     <?php $image = json_decode($sale_product->ImageName)[0];?>
-                                    <img src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" class="img-fluid rounded avatar-50 mr-3" alt="image">
+                                    <img src="{{asset('storage/kidoldash/images/product/'.$image)}}" class="img-fluid rounded avatar-50 mr-3" alt="image">
                                     <div style="color:#000;">{{$sale_product->ProductName}}</div>
                                 </div>
                             </div>
-                            <div class="col-md-12">                      
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="required">Tên chương trình khuyến mãi</label>
                                     <input id="SaleName" name="SaleName" type="text" value="{{$sale_product->SaleName}}" class="form-control" placeholder="Vui lòng nhập tên" data-errors="Please Enter Name." required>
                                     <div class="help-block with-errors"></div>
                                 </div>
-                            </div>  
-                            <div class="col-md-6">                      
+                            </div>
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="required">Thời gian bắt đầu</label>
                                     <input type='text' name="SaleStart" id='SaleStart' value="{{$sale_product->SaleStart}}" placeholder="Nhập thời gian bắt đầu" class="form-control" />
                                     <span class="text-danger"></span>
                                 </div>
-                            </div>  
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="required">Thời gian kết thúc</label>
@@ -57,14 +57,14 @@
                                     <span class="text-danger"></span>
                                 </div>
                             </div>
-                            <div class="col-md-12">                                    
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="required">Giảm giá</label>
                                     <input id="Percent" name="Percent" type="number" value="{{$sale_product->Percent}}" min="1" max="100" class="form-control" placeholder="% Giảm" required>
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
-                        </div>                            
+                        </div>
                         <input type="submit" class="btn btn-primary mr-2" value="Sửa khuyến mãi" data-toggle="modal" data-target=".bd-example-modal-sm">
                         <a href="{{URL::to('/manage-sale')}}" class="btn btn-light">Trở về</a>
                     </div>
@@ -78,7 +78,7 @@
 
 <!-- Tạo datetimepicker form -->
 <script>
-    $(document).ready(function(){  
+    $(document).ready(function(){
         jQuery.datetimepicker.setLocale('vi');
         // $.datetimepicker.setDateFormatter('moment');
         jQuery(function(){
@@ -108,7 +108,7 @@
 
 <!-- Validate thời gian sale -->
 <script>
-    $(document).ready(function(){  
+    $(document).ready(function(){
         Validator({
             form: "#form-add-sale",
             errorSelector: ".text-danger",

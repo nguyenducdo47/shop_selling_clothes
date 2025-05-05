@@ -1,7 +1,7 @@
 <?php
   header("Cache-Control: no-cache, must-revalidate");
-  header("Pragma: no-cache"); 
-  header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); 
+  header("Pragma: no-cache");
+  header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
   header("Cache-Control: max-age=2592000");
   use Illuminate\Support\Facades\Session;
 ?>
@@ -12,19 +12,19 @@
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <title>Kid Shop dashboard</title>
-      
+
       <!-- Morris Chart CSS -->
       <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
       <!-- Favicon -->
-      <link rel="shortcut icon" href="{{asset('public/kidoldash/images/favicon.ico')}}" />
-      <link rel="stylesheet" href="{{asset('public/kidoldash/css/backend-plugin.min.css')}}">
-      <link rel="stylesheet" href="{{asset('public/kidoldash/css/backend.css?v=1.0.0')}}">
-      <link rel="stylesheet" href="{{asset('public/kidoldash/vendor/@fortawesome/fontawesome-free/css/all.min.css')}}">
-      <link rel="stylesheet" href="{{asset('public/kidoldash/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css')}}">
-      <link rel="stylesheet" href="{{asset('public/kidoldash/vendor/remixicon/fonts/remixicon.css')}}">
+      <link rel="shortcut icon" href="{{asset('kidoldash/images/favicon.ico')}}" />
+      <link rel="stylesheet" href="{{asset('kidoldash/css/backend-plugin.min.css')}}">
+      <link rel="stylesheet" href="{{asset('kidoldash/css/backend.css?v=1.0.0')}}">
+      <link rel="stylesheet" href="{{asset('kidoldash/vendor/@fortawesome/fontawesome-free/css/all.min.css')}}">
+      <link rel="stylesheet" href="{{asset('kidoldash/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css')}}">
+      <link rel="stylesheet" href="{{asset('kidoldash/vendor/remixicon/fonts/remixicon.css')}}">
     </head>
   <body class="  ">
     <!-- loader Start -->
@@ -35,11 +35,11 @@
     <!-- loader END -->
     <!-- Wrapper Start -->
     <div class="wrapper">
-      
+
       <div class="iq-sidebar  sidebar-default ">
           <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
               <a href="{{URL::to('/')}}" class="header-logo" target="_blank">
-                <img src="{{asset('public/kidoldash/images/logo.png')}}" class="img-fluid rounded-normal light-logo" alt="logo">
+                <img src="{{asset('kidoldash/images/logo.png')}}" class="img-fluid rounded-normal light-logo" alt="logo">
                   <h5 class="logo-title light-logo ml-2">KidolShop</h5>
               </a>
               <div class="iq-menu-bt-sidebar ml-0">
@@ -50,14 +50,14 @@
           <?php
             $position = Session::get('Position');
             $avatar = Session::get('Avatar');
-            
+
             if($position != 'Nhân Viên'){
           ?>
           <div class="data-scrollbar" data-scroll="1">
               <nav class="iq-sidebar-menu">
                   <ul id="iq-sidebar-toggle" class="iq-menu">
                       <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
-                          <a href="{{URL::to('/dashboard')}}" class="svg-icon">                        
+                          <a href="{{URL::to('/dashboard')}}" class="svg-icon">
                               <svg  class="svg-icon" id="p-dash1" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                   <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line>
                               </svg>
@@ -366,7 +366,7 @@
                               <svg class="svg-icon iq-arrow-right arrow-active" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                   <polyline points="10 15 15 20 20 15"></polyline><path d="M4 4h7a4 4 0 0 1 4 4v12"></path>
                               </svg>
-                          </a> 
+                          </a>
                           <ul id="otherpage" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle"> -->
                                   <!-- <li class=" ">
                                       <a href="#user" class="collapsed" data-toggle="collapse" aria-expanded="false">
@@ -642,7 +642,7 @@
                                               </a>
                                           </li>
                                       </ul>
-                                  </li> 
+                                  </li>
                                   <li class=" ">
                                       <a href="#table" class="collapsed" data-toggle="collapse" aria-expanded="false">
                                           <svg class="svg-icon" id="p-dash14" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -670,7 +670,7 @@
                                                   </a>
                                               </li>
                                       </ul>
-                                  </li> 
+                                  </li>
                                   <li class=" ">
                                       <a href="#pricing" class="collapsed" data-toggle="collapse" aria-expanded="false">
                                           <svg class="svg-icon" id="p-dash16" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -740,7 +740,7 @@
                                               </svg>
                                               <span class="ml-4">Maintenance</span>
                                           </a>
-                                  </li> 
+                                  </li>
                           </ul>
                       </li> -->
                   </ul>
@@ -749,7 +749,7 @@
                   <div class="card border-none">
                       <div class="card-body p-0">
                           <div class="sidebarbottom-content">
-                              <div class="image"><img src="{{asset('public/kidoldash/images/layouts/side-bkg.png')}}" class="img-fluid" alt="side-bkg"></div>
+                              <div class="image"><img src="{{asset('kidoldash/images/layouts/side-bkg.png')}}" class="img-fluid" alt="side-bkg"></div>
                           </div>
                       </div>
                   </div>
@@ -849,7 +849,7 @@
                                         <i class="las la-minus"></i><span>Danh sách tin tức</span>
                                     </a>
                                 </li>
-                                <li class="{{ Request::is('add-blog') ? 'active' : '' }}"> 
+                                <li class="{{ Request::is('add-blog') ? 'active' : '' }}">
                                     <a href="{{URL::to('/add-blog')}}">
                                         <i class="las la-minus"></i><span>Thêm tin tức</span>
                                     </a>
@@ -862,7 +862,7 @@
                   <div class="card border-none">
                       <div class="card-body p-0">
                           <div class="sidebarbottom-content">
-                              <div class="image"><img src="{{asset('public/kidoldash/images/layouts/side-bkg.png')}}" class="img-fluid" alt="side-bkg"></div>
+                              <div class="image"><img src="{{asset('kidoldash/images/layouts/side-bkg.png')}}" class="img-fluid" alt="side-bkg"></div>
                           </div>
                       </div>
                   </div>
@@ -878,9 +878,9 @@
                   <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
                       <i class="ri-menu-line wrapper-menu"></i>
                       <a href="{{URL::to('/dashboard')}}" class="header-logo">
-                          <img src="{{asset('public/kidoldash/images/logo.png')}}" class="img-fluid rounded-normal" alt="logo">
+                          <img src="{{asset('kidoldash/images/logo.png')}}" class="img-fluid rounded-normal" alt="logo">
                           <h5 class="logo-title ml-3">KidolDash</h5>
-      
+
                       </a>
                   </div>
                   <div class="iq-search-bar device-search">
@@ -901,26 +901,26 @@
                                   <a href="#" class="search-toggle dropdown-toggle btn border add-btn"
                                       id="dropdownMenuButton02" data-toggle="dropdown" aria-haspopup="true"
                                       aria-expanded="false">
-                                      <img src="{{asset('public/kidoldash/images/small/Vietnam-Flag.png')}}" alt="img-flag"
+                                      <img src="{{asset('kidoldash/images/small/Vietnam-Flag.png')}}" alt="img-flag"
                                           class="img-fluid image-flag mr-2">Vi
                                   </a>
                                   <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton2">
                                       <div class="card shadow-none m-0">
                                           <div class="card-body p-3">
                                               <a class="iq-sub-card" href="#"><img
-                                                      src="{{asset('public/kidoldash/images/small/flag-02.png')}}" alt="img-flag"
+                                                      src="{{asset('kidoldash/images/small/flag-02.png')}}" alt="img-flag"
                                                       class="img-fluid mr-2">French</a>
                                               <a class="iq-sub-card" href="#"><img
-                                                      src="{{asset('public/kidoldash/images/small/flag-03.png')}}" alt="img-flag"
+                                                      src="{{asset('kidoldash/images/small/flag-03.png')}}" alt="img-flag"
                                                       class="img-fluid mr-2">Spanish</a>
                                               <a class="iq-sub-card" href="#"><img
-                                                      src="{{asset('public/kidoldash/images/small/flag-04.png')}}" alt="img-flag"
+                                                      src="{{asset('kidoldash/images/small/flag-04.png')}}" alt="img-flag"
                                                       class="img-fluid mr-2">Italian</a>
                                               <a class="iq-sub-card" href="#"><img
-                                                      src="{{asset('public/kidoldash/images/small/flag-05.png')}}" alt="img-flag"
+                                                      src="{{asset('kidoldash/images/small/flag-05.png')}}" alt="img-flag"
                                                       class="img-fluid mr-2">German</a>
                                               <a class="iq-sub-card" href="#"><img
-                                                      src="{{asset('public/kidoldash/images/small/flag-06.png')}}" alt="img-flag"
+                                                      src="{{asset('kidoldash/images/small/flag-06.png')}}" alt="img-flag"
                                                       class="img-fluid mr-2">Japanese</a>
                                           </div>
                                       </div>
@@ -973,7 +973,7 @@
                                                       <div class="media align-items-center cust-card py-3 border-bottom">
                                                           <div class="">
                                                               <img class="avatar-50 rounded-small"
-                                                                  src="{{asset('public/kidoldash/images/user/01.jpg')}}" alt="01">
+                                                                  src="{{asset('kidoldash/images/user/01.jpg')}}" alt="01">
                                                           </div>
                                                           <div class="media-body ml-3">
                                                               <div class="d-flex align-items-center justify-content-between">
@@ -988,7 +988,7 @@
                                                       <div class="media align-items-center cust-card py-3 border-bottom">
                                                           <div class="">
                                                               <img class="avatar-50 rounded-small"
-                                                                  src="{{asset('public/kidoldash/images/user/02.jpg')}}" alt="02">
+                                                                  src="{{asset('kidoldash/images/user/02.jpg')}}" alt="02">
                                                           </div>
                                                           <div class="media-body ml-3">
                                                               <div class="d-flex align-items-center justify-content-between">
@@ -1003,7 +1003,7 @@
                                                       <div class="media align-items-center cust-card py-3">
                                                           <div class="">
                                                               <img class="avatar-50 rounded-small"
-                                                                  src="{{asset('public/kidoldash/images/user/03.jpg')}}" alt="03">
+                                                                  src="{{asset('kidoldash/images/user/03.jpg')}}" alt="03">
                                                           </div>
                                                           <div class="media-body ml-3">
                                                               <div class="d-flex align-items-center justify-content-between">
@@ -1048,7 +1048,7 @@
                                                       <div class="media align-items-center cust-card py-3 border-bottom">
                                                           <div class="">
                                                               <img class="avatar-50 rounded-small"
-                                                                  src="{{asset('public/kidoldash/images/logo.png')}}" alt="01">
+                                                                  src="{{asset('kidoldash/images/logo.png')}}" alt="01">
                                                           </div>
                                                           <div class="media-body ml-3">
                                                               <div class="d-flex align-items-center justify-content-between">
@@ -1063,7 +1063,7 @@
                                                       <div class="media align-items-center cust-card py-3 border-bottom">
                                                           <div class="">
                                                               <img class="avatar-50 rounded-small"
-                                                                  src="{{asset('public/kidoldash/images/logo.png')}}" alt="01">
+                                                                  src="{{asset('kidoldash/images/logo.png')}}" alt="01">
                                                           </div>
                                                           <div class="media-body ml-3">
                                                               <div class="d-flex align-items-center justify-content-between">
@@ -1078,7 +1078,7 @@
                                                       <div class="media align-items-center cust-card py-3 border-bottom">
                                                           <div class="">
                                                               <img class="avatar-50 rounded-small"
-                                                                  src="{{asset('public/kidoldash/images/user/01.jpg')}}" alt="01">
+                                                                  src="{{asset('kidoldash/images/user/01.jpg')}}" alt="01">
                                                           </div>
                                                           <div class="media-body ml-3">
                                                               <div class="d-flex align-items-center justify-content-between">
@@ -1098,27 +1098,27 @@
                                       </div>
                                   </div>
                               </li>
-                
+
                               <li class="nav-item nav-icon dropdown caption-content">
                                   <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton4"
                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                        @if($avatar != '')
-                                        <img src="{{asset('public/storage/kidoldash/images/user/'.$avatar)}}" class="img-fluid rounded" alt="user">
+                                        <img src="{{asset('storage/kidoldash/images/user/'.$avatar)}}" class="img-fluid rounded" alt="user">
                                        @else
-                                        <img src="{{asset('public/kidoldash/images/user/12.jpg')}}" class="img-fluid rounded" alt="user">
+                                        <img src="{{asset('kidoldash/images/user/12.jpg')}}" class="img-fluid rounded" alt="user">
                                        @endif
                                   </a>
                                   <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton">
                                       <div class="card shadow-none m-0">
                                           <div class="card-body p-0 text-center">
                                               <div class="media-body profile-detail text-center">
-                                                  <img src="{{asset('public/kidoldash/images/page-img/profile-bg.jpg')}}" alt="profile-bg"
+                                                  <img src="{{asset('kidoldash/images/page-img/profile-bg.jpg')}}" alt="profile-bg"
                                                       class="rounded-top img-fluid mb-4">
                                                   @if($avatar != null)
-                                                  <img src="{{asset('public/storage/kidoldash/images/user/'.$avatar)}}" alt="profile-img"
+                                                  <img src="{{asset('storage/kidoldash/images/user/'.$avatar)}}" alt="profile-img"
                                                       class="rounded profile-img img-fluid avatar-70">
                                                   @else
-                                                  <img src="{{asset('public/kidoldash/images/user/12.jpg')}}" alt="profile-img"
+                                                  <img src="{{asset('kidoldash/images/user/12.jpg')}}" alt="profile-img"
                                                       class="rounded profile-img img-fluid avatar-70">
                                                   @endif
                                               </div>
@@ -1190,34 +1190,34 @@
     </footer>
 
 <!-- Backend Bundle JavaScript -->
-<script src="{{asset('public/kidoldash/js/backend-bundle.min.js')}}"></script>
+<script src="{{asset('kidoldash/js/backend-bundle.min.js')}}"></script>
 
 <!-- Table Treeview JavaScript -->
-<script src="{{asset('public/kidoldash/js/table-treeview.js')}}"></script>
+<script src="{{asset('kidoldash/js/table-treeview.js')}}"></script>
 
 <!-- Chart Custom JavaScript -->
-<script src="{{asset('public/kidoldash/js/customizer.js')}}"></script>
+<script src="{{asset('kidoldash/js/customizer.js')}}"></script>
 
 <!-- Chart Custom JavaScript -->
-<script async src="{{asset('public/kidoldash/js/chart-custom.js')}}"></script>
+<script async src="{{asset('kidoldash/js/chart-custom.js')}}"></script>
 
 <!-- app JavaScript -->
-<script src="{{asset('public/kidoldash/js/app.js')}}"></script>
+<script src="{{asset('kidoldash/js/app.js')}}"></script>
 
-<script src="{{asset('public/kidoldash/js/ckeditor/ckeditor.js')}}"></script>
+<script src="{{asset('kidoldash/js/ckeditor/ckeditor.js')}}"></script>
 
-<link rel="stylesheet" type="text/css" href="{{asset('public/kidoldash/datetimepicker-master/jquery.datetimepicker.css')}}">
-<script src="{{asset('public/kidoldash/datetimepicker-master/jquery.js')}}"></script>
-<script src="{{asset('public/kidoldash/datetimepicker-master/build/jquery.datetimepicker.full.min.js')}}"></script>
-<script src="{{asset('public/kidoldash/js/moment.js')}}"></script>
-<script src="{{asset('public/kidoldash/js/form-validate.js')}}"></script>
+<link rel="stylesheet" type="text/css" href="{{asset('kidoldash/datetimepicker-master/jquery.datetimepicker.css')}}">
+<script src="{{asset('kidoldash/datetimepicker-master/jquery.js')}}"></script>
+<script src="{{asset('kidoldash/datetimepicker-master/build/jquery.datetimepicker.full.min.js')}}"></script>
+<script src="{{asset('kidoldash/js/moment.js')}}"></script>
+<script src="{{asset('kidoldash/js/form-validate.js')}}"></script>
 
 <script type="text/javascript">
     function ChangeToSlug()
         {
             var slug;
-         
-            //Lấy text từ thẻ input title 
+
+            //Lấy text từ thẻ input title
             slug = $('.slug').val();
             slug = slug.toLowerCase();
             //Đổi ký tự có dấu thành không dấu

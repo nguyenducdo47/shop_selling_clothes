@@ -54,7 +54,7 @@
                     <tr class="product-item">
                         <?php $image = json_decode($bill_info->ImageName)[0]; ?>
                         <td class="image">
-                            <a href="{{URL::to('/shop-single/'.$bill_info->ProductSlug)}}"><img src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" alt=""></a>
+                            <a href="{{URL::to('/shop-single/'.$bill_info->ProductSlug)}}"><img src="{{asset('storage/kidoldash/images/product/'.$image)}}" alt=""></a>
                         </td>
                         <td class="product">
                             <a href="{{URL::to('/shop-single/'.$bill_info->ProductSlug)}}">{{$bill_info->ProductName}}</a>
@@ -93,7 +93,7 @@
                                     </td>
                                 </tr>
 
-                                @if($address->Voucher != '') 
+                                @if($address->Voucher != '')
                                 <tr>
                                     <td width="70%">Mã giảm giá</td>
                                     @php
@@ -104,7 +104,7 @@
                                         else{
                                             $discount = $VoucherNumber;
                                             if($discount > $Total) $discount = $Total;
-                                        } 
+                                        }
 
                                         $total_bill =  $total_bill - $discount;
                                         if($total_bill < 0) $total_bill = $ship;
@@ -119,8 +119,8 @@
                                 </tr>
 
                                 <input type="hidden" class="subtotal" value="{{$Total}}">
-                                <input type="hidden" name="TotalBill" class="totalBillVal" value="{{$total_bill}}">    
-                                <input type="hidden" name="idVoucher" class="idVoucher" value="0">                                
+                                <input type="hidden" name="TotalBill" class="totalBillVal" value="{{$total_bill}}">
+                                <input type="hidden" name="idVoucher" class="idVoucher" value="0">
                             </tbody>
                         </table>
                         @if($address->Payment == 'vnpay')
@@ -153,7 +153,7 @@
                                     <span>Zalo Pay</span>
                                 </label>
                             </li>
-                        </ul>                   
+                        </ul>
                     </div> -->
                 </div>
             </div>

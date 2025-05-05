@@ -3,7 +3,7 @@
 
 <div class="content-page">
     <div class="container-fluid">
-        <div class="row">                  
+        <div class="row">
             <div class="col-lg-12">
                 <div class="card card-block card-stretch card-height print rounded">
                     <div class="card-header d-flex justify-content-between bg-primary header-invoice">
@@ -61,7 +61,7 @@
                                                 <th class="text-center" scope="row">{{$key + 1}}</th>
                                                 <td class="row" style="border-bottom:0;">
                                                         <?php $image = json_decode($bill_info->ImageName)[0]; ?>
-                                                        <img class="avatar-70 rounded" src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" alt="">
+                                                        <img class="avatar-70 rounded" src="{{asset('storage/kidoldash/images/product/'.$image)}}" alt="">
                                                         <div class="ml-2" style="flex:1;">
                                                             <h6 class="mb-0">{{$bill_info->ProductName}}</h6>
                                                             <p class="mb-0">Mã sản phẩm: {{$bill_info->idProduct}}</p>
@@ -76,7 +76,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>                              
+                            </div>
                         </div>
                         <!-- <div class="row">
                             <div class="col-sm-12">
@@ -107,7 +107,7 @@
                                             </h6>
                                         </div>
 
-                                        @if($address->Voucher != '') 
+                                        @if($address->Voucher != '')
                                             <div class="mb-2 col-lg-10">
                                                 <h6>Mã giảm giá</h6>
                                             </div>
@@ -119,7 +119,7 @@
                                                 else{
                                                     $discount = $VoucherNumber;
                                                     if($discount > $Total) $discount = $Total;
-                                                } 
+                                                }
 
                                                 $total_bill =  $total_bill - $discount;
                                                 if($total_bill < 0) $total_bill = $ship;
@@ -140,10 +140,10 @@
                                 </div>
                                 @endif
                             </div>
-                        </div>                            
+                        </div>
                     </div>
                 </div>
-            </div>                                    
+            </div>
         </div>
     </div>
 </div>

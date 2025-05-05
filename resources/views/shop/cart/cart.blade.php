@@ -39,7 +39,7 @@
                     <tr class="product-item">
                         <?php $image = json_decode($pd_cart->ImageName)[0]; ?>
                         <td class="image">
-                            <a href="{{URL::to('/shop-single/'.$pd_cart->ProductSlug)}}"><img src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" alt=""></a>
+                            <a href="{{URL::to('/shop-single/'.$pd_cart->ProductSlug)}}"><img src="{{asset('storage/kidoldash/images/product/'.$image)}}" alt=""></a>
                         </td>
                         <td class="product">
                             <a href="{{URL::to('/shop-single/'.$pd_cart->ProductSlug)}}">{{$pd_cart->ProductName}}</a>
@@ -122,12 +122,12 @@
                             <div class="product-image">
                                 <?php $image = json_decode($product->ImageName)[0];?>
                                 <a href="{{URL::to('/shop-single/'.$product->ProductSlug)}}">
-                                    <img src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" alt="">
+                                    <img src="{{asset('storage/kidoldash/images/product/'.$image)}}" alt="">
                                 </a>
 
                                 <?php
-                                    $SalePrice = $product->Price;  
-                                    $get_time_sale = App\Http\Controllers\ProductController::get_sale_pd($product->idProduct); 
+                                    $SalePrice = $product->Price;
+                                    $get_time_sale = App\Http\Controllers\ProductController::get_sale_pd($product->idProduct);
                                 ?>
 
                                 @if($get_time_sale)
@@ -146,7 +146,7 @@
                                         <!-- <li><a class="AddToCart-Single" data-id="{{$product->idProduct}}" data-PriceNew="{{$SalePrice}}" data-token="{{csrf_token()}}" data-tooltip="tooltip" data-placement="left" title="Thêm vào giỏ hàng"><i class="icon-shopping-bag"></i></a></li> -->
                                         <li><a class="add-to-compare" data-idcat="{{$product->idCategory}}" id="{{$product->idProduct}}" data-tooltip="tooltip" data-placement="left" title="So sánh"><i class="icon-sliders"></i></a></li>
                                         <li><a class="add-to-wishlist" data-id="{{$product->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Thêm vào danh sách yêu thích"><i class="icon-heart"></i></a></li>
-                                        <li><a class="quick-view-pd" data-id="{{$product->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Xem nhanh"><i class="icon-eye"></i></a></li> 
+                                        <li><a class="quick-view-pd" data-id="{{$product->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Xem nhanh"><i class="icon-eye"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -169,7 +169,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>                 
+                    </div>
                     @endforeach
                 </div>
             </div>
@@ -219,7 +219,7 @@
         $('.sub-qty').on('click',function(){
             var $input = $(this).next();
             var currentValue = parseInt($input.val());
- 
+
             if(currentValue > 1){
                 $input.val(currentValue - 1);
                 var idCart = $(this).nextAll().eq(3).val();
@@ -236,7 +236,7 @@
                     }
                 });
             }
-            
+
             $(this).nextAll().eq(2).css({'transform' : 'scale(0)', 'opacity' : '0'});
         });
 
@@ -254,7 +254,7 @@
                     var PriceNew = $(this).nextAll().eq(3).val();
                     var Quantity = $(this).nextAll().eq(4).val();
                     var _token = $('input[name="_token"]').val();
-                    
+
                     $.ajax({
                         url: '{{url("/update-qty-cart")}}',
                         method: 'POST',
@@ -289,7 +289,7 @@
                 }
             });
         });
-    });  
+    });
 </script>
 
 @endsection

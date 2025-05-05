@@ -32,9 +32,9 @@
             <div class="col-lg-6 col-md-8">
                 <div class="shop-image">
                     <div class="shop-single-preview-image">
-                        <img class="product-zoom" src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" alt="">
-                        
-                        @if($get_time_sale) 
+                        <img class="product-zoom" src="{{asset('storage/kidoldash/images/product/'.$image)}}" alt="">
+
+                        @if($get_time_sale)
                             @if($product->QuantityTotal == '0') <span class="sticker-new label-sale">HẾT HÀNG</span>
                             @else <span class="sticker-new label-sale">-{{$get_time_sale->Percent}}%</span> @endif
                         @elseif($product->QuantityTotal == '0') <span class="sticker-new label-sale">HẾT HÀNG</span> @endif
@@ -43,8 +43,8 @@
                         <div class="swiper-wrapper">
                             @foreach(json_decode($product->ImageName) as $img)
                             <div class="swiper-slide single-product-thumb">
-                                <a class="active" href="#" data-image="{{asset('public/storage/kidoldash/images/product/'.$img)}}">
-                                    <img src="{{asset('public/storage/kidoldash/images/product/'.$img)}}" alt="">
+                                <a class="active" href="#" data-image="{{asset('storage/kidoldash/images/product/'.$img)}}">
+                                    <img src="{{asset('storage/kidoldash/images/product/'.$img)}}" alt="">
                                 </a>
                             </div>
                             @endforeach
@@ -110,7 +110,7 @@
                             <button type="button" class="add-qty"><i class="ti-plus"></i></button>
                         </div>
                     </div>
-                    
+
                     <input type="hidden" name="idProduct" id="idProduct" value="{{$product->idProduct}}">
                     <input type="hidden" name="PriceNew" id="PriceNew" value="{{round($SalePrice,-3)}}">
                     <input class="qty-of-attr" name="qty_of_attr" type="hidden" value="{{$name_attribute->Quantity}}">
@@ -118,14 +118,14 @@
                     <input type="hidden" id="AttributeName" name="AttributeName" value="{{$name_attribute->AttributeName}}">
                     <input type="hidden" id="AttributeProduct" name="AttributeProduct">
                     <input type="hidden" id="idProAttr" name="idProAttr">
-                    
+
                     <div class="text-primary alert-qty"></div>
-                    
+
 
                     <div class="product-action d-flex flex-wrap">
                         <div class="action">
                             <button type="button" class="btn btn-primary add-to-cart">Thêm vào giỏ hàng</button>
-               
+
                         </div>
                         <div class="action">
                             <a class="add-to-wishlist" data-id="{{$product->idProduct}}" data-tooltip="tooltip" data-placement="right" title="Thêm vào yêu thích"><i class="fa fa-heart"></i></a>
@@ -150,19 +150,19 @@
                             echo '<div class="text-danger">'.$error.'</div>';
                             Session::put('error', null);
                         }
-                    ?>    
+                    ?>
                     </form>
 
                     <div class="custom-payment-options">
                         <p>Phương thức thanh toán</p>
 
                         <ul class="payment-options">
-                            <li><img src="{{asset('public/kidolshop/images/payment-icon/payment-1.svg')}}" alt=""></li>
-                            <li><img src="{{asset('public/kidolshop/images/payment-icon/payment-2.svg')}}" alt=""></li>
-                            <li><img src="{{asset('public/kidolshop/images/payment-icon/payment-3.svg')}}" alt=""></li>
-                            <li><img src="{{asset('public/kidolshop/images/payment-icon/payment-4.svg')}}" alt=""></li>
-                            <li><img src="{{asset('public/kidolshop/images/payment-icon/payment-5.svg')}}" alt=""></li>
-                            <li><img src="{{asset('public/kidolshop/images/payment-icon/payment-7.svg')}}" alt=""></li>
+                            <li><img src="{{asset('kidolshop/images/payment-icon/payment-1.svg')}}" alt=""></li>
+                            <li><img src="{{asset('kidolshop/images/payment-icon/payment-2.svg')}}" alt=""></li>
+                            <li><img src="{{asset('kidolshop/images/payment-icon/payment-3.svg')}}" alt=""></li>
+                            <li><img src="{{asset('kidolshop/images/payment-icon/payment-4.svg')}}" alt=""></li>
+                            <li><img src="{{asset('kidolshop/images/payment-icon/payment-5.svg')}}" alt=""></li>
+                            <li><img src="{{asset('kidolshop/images/payment-icon/payment-7.svg')}}" alt=""></li>
                         </ul>
                     </div>
 
@@ -324,12 +324,12 @@
                             <div class="product-image">
                                 <?php $image = json_decode($related_product->ImageName)[0];?>
                                 <a href="{{URL::to('/shop-single/'.$related_product->ProductSlug)}}">
-                                    <img src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" alt="">
+                                    <img src="{{asset('storage/kidoldash/images/product/'.$image)}}" alt="">
                                 </a>
 
                                 <?php
-                                    $SalePrice = $related_product->Price;  
-                                    $get_time_sale = ProductController::get_sale_pd($related_product->idProduct); 
+                                    $SalePrice = $related_product->Price;
+                                    $get_time_sale = ProductController::get_sale_pd($related_product->idProduct);
                                 ?>
 
                                 @if($get_time_sale)
@@ -348,7 +348,7 @@
                                         <!-- <li><a class="AddToCart-Single" data-id="{{$related_product->idProduct}}" data-PriceNew="{{$SalePrice}}" data-token="{{csrf_token()}}" data-tooltip="tooltip" data-placement="left" title="Thêm vào giỏ hàng"><i class="icon-shopping-bag"></i></a></li> -->
                                         <li><a class="add-to-compare" data-idcat="{{$related_product->idCategory}}" id="{{$related_product->idProduct}}" data-tooltip="tooltip" data-placement="left" title="So sánh"><i class="icon-sliders"></i></a></li>
                                         <li><a class="add-to-wishlist" data-id="{{$related_product->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Thêm vào danh sách yêu thích"><i class="icon-heart"></i></a></li>
-                                        <li><a class="quick-view-pd" data-id="{{$related_product->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Xem nhanh"><i class="icon-eye"></i></a></li> 
+                                        <li><a class="quick-view-pd" data-id="{{$related_product->idProduct}}" data-tooltip="tooltip" data-placement="left" title="Xem nhanh"><i class="icon-eye"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -405,7 +405,7 @@
 </div> -->
 
 <div id="modal-AddToCart">
-    
+
 </div>
 
 <!--Brand Start-->
@@ -414,22 +414,22 @@
         <div class="brand-active swiper-container">
             <div class="swiper-wrapper">
                 <div class="single-brand swiper-slide">
-                    <img src="{{asset('public/kidolshop/images/brand/brand-1.jpg')}}" alt="">
+                    <img src="{{asset('kidolshop/images/brand/brand-1.jpg')}}" alt="">
                 </div>
                 <div class="single-brand swiper-slide">
-                    <img src="{{asset('public/kidolshop/images/brand/brand-2.jpg')}}" alt="">
+                    <img src="{{asset('kidolshop/images/brand/brand-2.jpg')}}" alt="">
                 </div>
                 <div class="single-brand swiper-slide">
-                    <img src="{{asset('public/kidolshop/images/brand/brand-3.jpg')}}" alt="">
+                    <img src="{{asset('kidolshop/images/brand/brand-3.jpg')}}" alt="">
                 </div>
                 <div class="single-brand swiper-slide">
-                    <img src="{{asset('public/kidolshop/images/brand/brand-4.jpg')}}" alt="">
+                    <img src="{{asset('kidolshop/images/brand/brand-4.jpg')}}" alt="">
                 </div>
                 <div class="single-brand swiper-slide">
-                    <img src="{{asset('public/kidolshop/images/brand/brand-5.jpg')}}" alt="">
+                    <img src="{{asset('kidolshop/images/brand/brand-5.jpg')}}" alt="">
                 </div>
                 <div class="single-brand swiper-slide">
-                    <img src="{{asset('public/kidolshop/images/brand/brand-6.jpg')}}" alt="">
+                    <img src="{{asset('kidolshop/images/brand/brand-6.jpg')}}" alt="">
                 </div>
             </div>
         </div>
@@ -439,7 +439,7 @@
 
 <!-- Validate QuantityBuy & Add To Cart & Buy Now -->
 <script>
-    $(document).ready(function(){  
+    $(document).ready(function(){
         var idCustomer = '<?php echo Session::get('idCustomer'); ?>';
         var $Quantity = parseInt($('.qty-of-attr').val());
         $("input:radio[name=material]:first").attr('checked', true);
@@ -458,7 +458,7 @@
             $Quantity = $(this).data("qty");
             $('.qty-of-attr-label').html("Còn Lại: " +$Quantity);
             $('.qty-of-attr').val($Quantity);
-            
+
             AttributeProduct = $('#AttributeName').val() + ': ' + $AttrValName;
             $('#AttributeProduct').val(AttributeProduct);
 
@@ -514,7 +514,7 @@
                         $('.modal-AddToCart').modal('show');
                     }
                 });
-            }        
+            }
         });
     });
 </script>

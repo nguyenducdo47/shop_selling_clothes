@@ -25,23 +25,23 @@
                             echo '<span class="text-danger ml-3 mt-3">'.$error.'</span>';
                             Session::put('error', null);
                         }
-                    ?> 
+                    ?>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-12">                      
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="required">Tên chương trình khuyến mãi</label>
                                     <input id="SaleName" name="SaleName" type="text" class="form-control" placeholder="Vui lòng nhập tên" data-errors="Please Enter Name." required>
                                     <div class="help-block with-errors"></div>
                                 </div>
-                            </div>  
-                            <div class="col-md-6">                      
+                            </div>
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="required">Thời gian bắt đầu</label>
                                     <input type='text' name="SaleStart" id='SaleStart' placeholder="Nhập thời gian bắt đầu" class="form-control" />
                                     <span class="text-danger"></span>
                                 </div>
-                            </div>  
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="required">Thời gian kết thúc</label>
@@ -49,25 +49,25 @@
                                     <span class="text-danger"></span>
                                 </div>
                             </div>
-                            <div class="col-md-12">                                    
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="required">Giảm giá</label>
                                     <input id="Percent" name="Percent" type="number" min="1" max="100" class="form-control" placeholder="% Giảm" required>
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
-                            <div class="col-md-12">                                    
+                            <div class="col-md-12">
                                 <label class="required">Sản phẩm</label>
                                 <div class="row form-group list-product">
                                     <a href="#" class="col-md-2 btn add-btn shadow-none d-none d-md-block" style="padding:15px;" data-toggle="modal" data-target="#select-products">
                                         <div class="add-product">
                                             <i class="las la-plus mr-2" style="font-size:24px;"></i>
                                             <br><span>Thêm Sản Phẩm</span>
-                                        </div>    
+                                        </div>
                                     </a>
                                 </div>
                             </div>
-                        </div>                            
+                        </div>
                         <input type="submit" class="btn btn-primary mr-2" value="Thêm khuyến mãi" data-toggle="modal" data-target=".bd-example-modal-sm">
                         <a href="{{URL::to('/manage-sale')}}" class="btn btn-light">Trở về</a>
                     </div>
@@ -93,7 +93,7 @@
                     <div class="product-image mb-3" id="product-image-{{$product->idProduct}}">
 
                         <?php $image = json_decode($product->ImageName)[0];?>
-                        <label for="chk-pd-{{$product->idProduct}}"><img src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" class="rounded w-100 img-fluid"/></label>
+                        <label for="chk-pd-{{$product->idProduct}}"><img src="{{asset('storage/kidoldash/images/product/'.$image)}}" class="rounded w-100 img-fluid"/></label>
 
                         <div class="product-title">
                             <div class="product-name">
@@ -118,7 +118,7 @@
 
 <!-- Tạo datetimepicker form -->
 <script>
-    $(document).ready(function(){  
+    $(document).ready(function(){
         jQuery.datetimepicker.setLocale('vi');
         // $.datetimepicker.setDateFormatter('moment');
         jQuery(function(){
@@ -148,7 +148,7 @@
 
 <!-- JS Modal chọn sản phẩm sale -->
 <script>
-    $(document).ready(function(){  
+    $(document).ready(function(){
         $("input[type=checkbox]").on("click", function() {
             var product_id = $(this).data("id");
             var product_name = $(this).data("name");
@@ -194,7 +194,7 @@
 
 <!-- Validate thời gian sale -->
 <script>
-    $(document).ready(function(){  
+    $(document).ready(function(){
         Validator({
             form: "#form-add-sale",
             errorSelector: ".text-danger",

@@ -23,7 +23,7 @@
             <div class="col-lg-4 col-md-6 mb-30">
                 <div class="single-blog">
                     <div class="blog-image">
-                        <a href="{{URL::to('/blog/'.$blog->BlogSlug)}}"><img src="{{asset('public/storage/kidoldash/images/blog/'.$blog->BlogImage)}}" alt=""></a>
+                        <a href="{{URL::to('/blog/'.$blog->BlogSlug)}}"><img src="{{asset('storage/kidoldash/images/blog/'.$blog->BlogImage)}}" alt=""></a>
                     </div>
                     <div class="blog-content">
                         <h5 class="title"><a href="{{URL::to('/blog/'.$blog->BlogSlug)}}" class="new-block">{{$blog->BlogTitle}}</a></h5>

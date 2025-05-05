@@ -32,21 +32,21 @@
                             <tr>
                                 <td>{{$blog->idBlog}}</td>
                                 <td>
-                                    <img src="{{asset('public/storage/kidoldash/images/blog/'.$blog->BlogImage)}}" class="img-fluid rounded avatar-50 mr-3" alt="image">
+                                    <img src="{{asset('storage/kidoldash/images/blog/'.$blog->BlogImage)}}" class="img-fluid rounded avatar-50 mr-3" alt="image">
                                     {{$blog->BlogTitle}}
                                 </td>
                                 <td>{{$blog->created_at}}</td>
                                 <td>{{$blog->updated_at}}</td>
                                 <td>
                                     @if($blog->Status == 0) Ẩn
-                                    @else Hiện 
+                                    @else Hiện
                                     @endif
                                 </td>
                                 <td>
                                     <div class="d-flex align-items-center list-action">
                                         <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Sửa"
                                             href="{{URL::to('/edit-blog/'.$blog->idBlog)}}"><i class="ri-pencil-line mr-0"></i></a>
-                                        
+
                                         <a class="badge bg-warning mr-2" data-toggle="modal" data-target="#modal-delete-{{$blog->idBlog}}" data-placement="top" title="" data-original-title="Xóa"
                                             style="cursor:pointer;"><i class="ri-delete-bin-line mr-0"></i></a>
                                     </div>
@@ -74,11 +74,11 @@
                             </div>
                             @endforeach
                         </tbody>
-                    </table> 
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
-      
+
 @endsection

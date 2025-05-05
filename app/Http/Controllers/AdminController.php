@@ -22,21 +22,25 @@ class AdminController extends Controller
     public function checkLogin()
     {
         $idAdmin = Session::get('idAdmin');
-        if ($idAdmin == false) return Redirect::to('admin')->send();
+        if ($idAdmin == false)
+            return Redirect::to('admin')->send();
     }
 
     // Kiểm tra chức vụ
     public function checkPostion()
     {
         $position = Session::get('Position');
-        if ($position === 'Nhân Viên') return Redirect::to('/my-adprofile')->send();
+        if ($position === 'Nhân Viên')
+            return Redirect::to('/my-adprofile')->send();
     }
 
     // Chuyển đến trang đăng nhập
     public function show_login()
     {
-        if (Session::get('idAdmin')) return Redirect::to('dashboard');
-        else return view("admin_login");
+        if (Session::get('idAdmin'))
+            return Redirect::to('dashboard');
+        else
+            return view("admin_login");
     }
 
     // Chuyển đến trang thống kê
@@ -260,7 +264,8 @@ class AdminController extends Controller
                     'QtyBill' => $statistic->QtyBill
                 );
             }
-        } else $chart_data[] = array();
+        } else
+            $chart_data[] = array();
 
         echo $data = json_encode($chart_data);
     }
@@ -287,7 +292,8 @@ class AdminController extends Controller
                     'QtyBill' => $statistic->QtyBill
                 );
             }
-        } else $chart_data[] = array();
+        } else
+            $chart_data[] = array();
 
         echo $data = json_encode($chart_data);
     }
@@ -333,7 +339,8 @@ class AdminController extends Controller
                     'QtyBill' => $statistic->QtyBill
                 );
             }
-        } else $chart_data[] = array();
+        } else
+            $chart_data[] = array();
 
         echo $data = json_encode($chart_data);
     }
@@ -381,7 +388,7 @@ class AdminController extends Controller
                     <div class="mb-0 card card-block card-stretch">
                         <div class="card-body">
                             <div class="rounded bg-warning-light">
-                                <img src="public/storage/kidoldash/images/product/' . $image . '" class="p-3 m-auto style-img img-fluid" alt="image">
+                                <img src="' . asset('storage/kidoldash/images/product/' . $image) . '" class="p-3 m-auto style-img img-fluid" alt="image">
                             </div>
                             <div class="mt-3 text-left style-text">
                                 <h5 class="mb-1 limit-2-lines">' . $topProduct->ProductName . '</h5>
@@ -389,8 +396,8 @@ class AdminController extends Controller
                             </div>
                         </div>
                     </div>
-                </li>
-            ';
+                </li>';
+
         }
         $output .= '</ul>';
 

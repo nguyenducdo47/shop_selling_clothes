@@ -505,7 +505,7 @@ class ProductController extends Controller
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="quick-view-image">
-                                                <img src="public/storage/kidoldash/images/product/'.$image.'" alt="">
+                                                <img src="' . asset('storage/kidoldash/images/product/' . $image) . '" alt="">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -569,10 +569,10 @@ class ProductController extends Controller
                                 if($sale_pd) $SalePrice = $pd->Price - ($pd->Price/100) * $sale_pd->Percent;
                                 $image = json_decode($pd->ImageName)[0];
             $output .= '    <div class="product-item col-md-3 select-pd" id="product-item-'.$pd->idProduct.'" data-id="'.$pd->idProduct.'">
-                                <div class="product-image-compare mb-3" id="product-image-'.$pd->idProduct.'">
-                                    <label for="chk-pd-'.$pd->idProduct.'"><img src="public/storage/kidoldash/images/product/'.$image.'" class="rounded w-100 img-fluid"></label>
+                                <div class="mb-3 product-image-compare" id="product-image-'.$pd->idProduct.'">
+                                    <label for="chk-pd-'.$pd->idProduct.'"><img src="' . asset('storage/kidoldash/images/product/' . $image) . '" class="rounded w-100 img-fluid"></label>
                                     <div class="product-title-compare">
-                                        <div class="product-name-compare text-center">
+                                        <div class="text-center product-name-compare">
                                             <input type="checkbox" class="checkstatus d-none" id="chk-pd-'.$pd->idProduct.'" name="chk_product[]" value="'.$pd->idProduct.'" data-id="'.$pd->idProduct.'">
                                             <span>'.$pd->ProductName.'</span>
                                         </div>
@@ -616,10 +616,10 @@ class ProductController extends Controller
                 if($sale_pd) $SalePrice = $pd->Price - ($pd->Price/100) * $sale_pd->Percent;
                 $image = json_decode($pd->ImageName)[0];
             $output .= '<div class="product-item col-md-3 select-pd" id="product-item-'.$pd->idProduct.'" data-id="'.$pd->idProduct.'">
-                            <div class="product-image-compare mb-3" id="product-image-'.$pd->idProduct.'">
-                                <label for="chk-pd-'.$pd->idProduct.'"><img src="/public/storage/kidoldash/images/product/'.$image.'" class="rounded w-100 img-fluid"></label>
+                            <div class="mb-3 product-image-compare" id="product-image-'.$pd->idProduct.'">
+                                <label for="chk-pd-'.$pd->idProduct.'"><img src="' . asset('storage/kidoldash/images/product/' . $image) . '" class="rounded w-100 img-fluid"></label>
                                 <div class="product-title-compare">
-                                    <div class="product-name-compare text-center">
+                                    <div class="text-center product-name-compare">
                                         <input type="checkbox" class="checkstatus d-none" id="chk-pd-'.$pd->idProduct.'" name="chk_product[]" value="'.$pd->idProduct.'" data-id="'.$pd->idProduct.'">
                                         <span>'.$pd->ProductName.'</span>
                                     </div>
@@ -690,8 +690,8 @@ class ProductController extends Controller
                     <li class="search-product-item d-flex align-items-center">
                         <a class="search-product-text" href="/kidolshop/shop-single/'.$pd->ProductSlug.'">
                             <div class="d-flex align-items-center">
-                                <img width="50" height="50" src="public/storage/kidoldash/images/product/'.$image.'" alt="">
-                                <span class="two-line ml-2">'.$pd->ProductName.'</span>
+                                <img width="50" height="50" src="' . asset('storage/kidoldash/images/product/' . $image) . '" alt="">
+                                <span class="ml-2 two-line">'.$pd->ProductName.'</span>
                             </div>
                         </a>
                     </li>';

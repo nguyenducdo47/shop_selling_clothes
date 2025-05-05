@@ -24,7 +24,7 @@
 <!--Cart Start-->
 <div class="cart-page section-padding-5">
     <div class="container">
-        
+
         <div class="container__address">
             <div class="container__address-css"></div>
             <div class="container__address-content">
@@ -57,7 +57,7 @@
                     <tr class="product-item">
                         <?php $image = json_decode($pd_cart->ImageName)[0]; ?>
                         <td class="image">
-                            <a href="{{URL::to('/shop-single/'.$pd_cart->ProductSlug)}}"><img src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" alt=""></a>
+                            <a href="{{URL::to('/shop-single/'.$pd_cart->ProductSlug)}}"><img src="{{asset('storage/kidoldash/images/product/'.$image)}}" alt=""></a>
                         </td>
                         <td class="product">
                             <a href="{{URL::to('/shop-single/'.$pd_cart->ProductSlug)}}">{{$pd_cart->ProductName}}</a>
@@ -113,7 +113,7 @@
                             <span>VNPay</span>
                         </label>
                     </li>
-                </ul>                   
+                </ul>
             </div>
             <div class="col-lg-12">
                 <div class="cart-totals shop-single-content">
@@ -143,13 +143,13 @@
                                 </tr>
 
                                 <input type="hidden" class="subtotal" value="{{$Total}}">
-                                <input type="hidden" name="TotalBill" class="totalBillVal" value="{{$total_bill}}">    
-                                <input type="hidden" name="Voucher" class="Voucher" value="">    
-                                <input type="hidden" name="idVoucher" class="idVoucher" value="0">                                
+                                <input type="hidden" name="TotalBill" class="totalBillVal" value="{{$total_bill}}">
+                                <input type="hidden" name="Voucher" class="Voucher" value="">
+                                <input type="hidden" name="idVoucher" class="idVoucher" value="0">
                             </tbody>
                         </table>
                     </div>
-                    
+
                     @if ($check_address)
                     <div class="dynamic-checkout-button  ">
                         {{-- <div class="checkout-checkbox">
@@ -159,7 +159,7 @@
                         <div class="cart-total-btn checkout-btn">
                             <button type="submit" name="redirect" class="btn btn-primary btn-block btnorder" style="max-width:100%;">Đặt hàng</button>
                         </div>
-                        
+
                     </div>
                     @else
                     <div class="dynamic-checkout-button disabled ">
@@ -170,11 +170,11 @@
                         <div class="cart-total-btn checkout-btn">
                             <button type="submit" name="redirect" class="btn btn-primary btn-block btnorder" style="max-width:100%;">Đặt hàng</button>
                         </div>
-                        
+
                     </div>
                     @endif
-                    
-                    
+
+
                 </div>
             </div>
         </div>
@@ -212,7 +212,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                    <input type="submit" id="btn-insert-address" class="btn btn-primary" value="Thêm"> 
+                    <input type="submit" id="btn-insert-address" class="btn btn-primary" value="Thêm">
                 </div>
             </div>
         </div>
@@ -248,17 +248,17 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                    <input type="submit" id="btn-insert-address" class="btn btn-primary" value="Sửa"> 
+                    <input type="submit" id="btn-insert-address" class="btn btn-primary" value="Sửa">
                 </div>
             </div>
         </div>
     </div>
 </form>
 
-<script src="{{asset('public/kidolshop/js/jquery.validate.min.js')}}"></script>
+<script src="{{asset('kidolshop/js/jquery.validate.min.js')}}"></script>
 
 <script>
-    $(document).ready(function(){  
+    $(document).ready(function(){
         APP_URL = '{{url('/')}}' ;
         fetch_address();
 
@@ -277,7 +277,7 @@
                     $('.dlt-address').on('click',function(){
                         var idAddress = $(this).data("id");
                         var _token = $('input[name="_token"]').val();
-          
+
                         $.ajax({
                             url: APP_URL + '/delete-address/'+idAddress,
                             method: 'DELETE',
@@ -404,7 +404,7 @@
 </script>
 
 <script>
-    $(document).ready(function(){  
+    $(document).ready(function(){
         APP_URL = '{{url('/')}}' ;
 
         function format(n) {
@@ -423,7 +423,7 @@
                 data: {VoucherCode:VoucherCode,_token:_token},
                 success:function(data){
                     var array_data = data.split("-");
-                    
+
                     var subtotal = parseInt($('.subtotal').val());
                     var totalBill = parseInt($('.totalBillVal').val());
 
@@ -438,7 +438,7 @@
                         if(condition == '1') vouchernumber = (subtotal/100)*vouchernumber;
 
                         if(vouchernumber > subtotal) vouchernumber = subtotal;
-                        
+
                         totalBill = totalBill - vouchernumber;
 
                         $('.shipping').after('<tr class="voucher-confirm"><td width="70%">Mã giảm giá</td><td class="text-right">- '+format(vouchernumber)+'đ</td></tr>');
@@ -446,7 +446,7 @@
                         $('.totalBillVal').val(totalBill);
                         $('.Voucher').val(array_data[3] + "-" + condition + "-" + array_data[2]);
                         $('.idVoucher').val(array_data[3]);
-                        
+
                         $('.unset-voucher').on('click',function(){
                             $('.alert-voucher').html("");
                             $('.check-voucher').css('display', 'block');
@@ -458,7 +458,7 @@
                             $('.Voucher').val("");
                             $('.idVoucher').val("0");
                         });
-                    }else $('.alert-voucher').html(data); 
+                    }else $('.alert-voucher').html(data);
                 }
             });
         });

@@ -32,13 +32,13 @@
                                     <th class="action text-center" style="width:10%;">Thao tác</th>
                                 </tr>
                             </thead>
-                            <tbody>             
-                                @foreach($wishlist as $key => $wish)                     
+                            <tbody>
+                                @foreach($wishlist as $key => $wish)
                                 <tr>
                                     <td class="text-center">{{$key+1}}</td>
                                     <?php $image = json_decode($wish->ImageName)[0]; ?>
                                     <td>
-                                        <a href="{{URL::to('/shop-single/'.$wish->ProductSlug)}}"><img src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" alt=""></a>
+                                        <a href="{{URL::to('/shop-single/'.$wish->ProductSlug)}}"><img src="{{asset('storage/kidoldash/images/product/'.$image)}}" alt=""></a>
                                     </td>
                                     <td>
                                         <div><a href="{{URL::to('/shop-single/'.$wish->ProductSlug)}}">{{$wish->ProductName}}</a></div>
@@ -46,7 +46,7 @@
                                         <div class="text-primary">Còn Lại: {{$wish->QuantityTotal}}</div>
                                     </td>
 
-                                    <td>{{$wish->Price}}</td>            
+                                    <td>{{$wish->Price}}</td>
 
                                     <td class="text-center">
                                         <a class="view-hover h3 d-block delete-wish" data-id="{{$wish->idWish}}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Xóa"><i class="fa fa-trash"></i></a>
@@ -83,7 +83,7 @@
                 }
             });
         });
-    });  
+    });
 </script>
 
 @endsection

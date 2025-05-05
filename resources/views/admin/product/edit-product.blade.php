@@ -25,16 +25,16 @@
                             echo '<span class="text-danger ml-3 mt-3">'.$error.'</span>';
                             Session::put('error', null);
                         }
-                    ?> 
+                    ?>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-12">                      
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="ProductName" class="required">Tên sản phẩm</label>
                                     <input id="ProductName" name="ProductName" type="text" class="form-control slug" onkeyup="ChangeToSlug()" value="{{$product->ProductName}}" placeholder="Vui lòng nhập tên" data-errors="Please Enter Name." required>
                                     <div class="help-block with-errors"></div>
                                 </div>
-                            </div>  
+                            </div>
                             <input type="hidden" name="ProductSlug" class="form-control" value="{{$product->ProductSlug}}" id="convert_slug">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -46,8 +46,8 @@
                                         @endforeach
                                     </select>
                                     <div class="help-block with-errors"></div>
-                                </div> 
-                            </div>    
+                                </div>
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="idBrand" class="required">Thương hiệu</label>
@@ -68,7 +68,7 @@
                             </div>
                             <div class="col-md-12 d-flex flex-wrap input-attrs">
                                 <div class="col-md-12 d-flex flex-wrap attr-title">
-                                    @if($name_attribute)    
+                                    @if($name_attribute)
                                     <div class="attr-title-1 col-md-6 text-center">{{$name_attribute->AttributeName}}</div>
                                     <div class="attr-title-2 col-md-6 text-center">Số lượng</div>
                                     @else
@@ -94,7 +94,7 @@
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
-                            <div class="col-md-6">                                    
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="Quantity">Tổng số lượng</label>
                                     <input id="Quantity" name="QuantityTotal" type="number" min="0" class="form-control" value="{{$product->QuantityTotal}}" placeholder="Vui lòng nhập số lượng" required>
@@ -110,7 +110,7 @@
                                     <div class="d-flex flex-wrap" id="image-list">
                                         @foreach(json_decode($product->ImageName) as $key => $image)
                                         <div id="image-item-{{$key}}" class="image-item">
-                                            <img src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" class="img-fluid rounded avatar-100 mr-3 mt-2">
+                                            <img src="{{asset('storage/kidoldash/images/product/'.$image)}}" class="img-fluid rounded avatar-100 mr-3 mt-2">
                                             <!-- <span class="dlt-item"><span class="dlt-icon">x</span></span> -->
                                         </div>
                                         @endforeach
@@ -133,7 +133,7 @@
                                     <script>$(document).ready(function(){CKEDITOR.replace('DesProduct');});</script>
                                 </div>
                             </div>
-                        </div>                            
+                        </div>
                         <input type="submit" class="btn btn-primary mr-2" id="btn-submit" value="Sửa sản phẩm">
                         <a href="{{URL::to('/manage-products')}}" class="btn btn-light">Trở về</a>
                     </div>
@@ -212,13 +212,13 @@
 
 <!-- Validate CKEDITOR -->
 <script>
-    $(document).ready(function(){  
+    $(document).ready(function(){
         CKEDITOR.instances['DesProduct'].on('change', function () {
             var messageLength = CKEDITOR.instances['DesProduct'].getData().replace(/<[^>]*>/gi, '').length;
             if( !messageLength ) {
                 $('.alert-despd').html("Vui lòng điền vào trường này.");
                 $('#btn-submit').addClass('disabled-button');
-                
+
             }else{
                 $('.alert-despd').html("");
                 $('#btn-submit').removeClass('disabled-button');
@@ -230,7 +230,7 @@
             if( !messageLength ) {
                 $('.alert-shortdespd').html("Vui lòng điền vào trường này.");
                 $('#btn-submit').addClass('disabled-button');
-                
+
             }else{
                 $('.alert-shortdespd').html("");
                 $('#btn-submit').removeClass('disabled-button');
@@ -255,7 +255,7 @@
 
 <!-- Validate phân loại hàng -->
 <script>
-    $(document).ready(function(){  
+    $(document).ready(function(){
         $('.chk_attr').prop('checked', true);
 
         $('.choose-attr').on('change',function(){
@@ -284,14 +284,14 @@
                             $("#confirm-attrs").click(function(){
                                 var input_attrs_item = '<div id="input-attrs-item-'+ attr_id +'" class="col-md-12 d-flex flex-wrap input_attrs_items"><div class="col-md-6"><input class="form-control text-center" type="text" value="'+ attr_name +'" disabled></div><div class="form-group col-md-6"><input id="qty-attr-'+ attr_id +'" class="form-control text-center qty-attr" name="qty_attr[]" type="number" placeholder="Nhập số lượng phân loại" required></div></div>';
                                 if($('#input-attrs-item-' +attr_id).length < 1) $('.input-attrs').append(input_attrs_item);
-                                
+
                                 // Số lượng input
                                 $(".qty-attr").on("input",function() {
                                     var total_qty = 0;
                                     $(".qty-attr").each(function(){
                                         if(!isNaN(parseInt($(this).val())))
                                         {
-                                            total_qty += parseInt($(this).val());  
+                                            total_qty += parseInt($(this).val());
                                         }
                                     });
                                     $("#Quantity").val(total_qty);
@@ -320,7 +320,7 @@
                         }
                         else if($(this).is(":not(:checked)")){
                             $("#attr-name-"+attr_id).removeClass("border-primary text-primary");
-                            
+
                             $("#confirm-attrs").click(function(){
                                 $('#input-attrs-item-' +attr_id).remove();
 
@@ -328,7 +328,7 @@
                                 $(".qty-attr").each(function(){
                                     if(!isNaN(parseInt($(this).val())))
                                     {
-                                        total_qty += parseInt($(this).val());  
+                                        total_qty += parseInt($(this).val());
                                     }
                                 });
                                 $("#Quantity").val(total_qty);
@@ -358,7 +358,7 @@
                     });
                 }
             });
-        });       
+        });
 
         $("input[type=checkbox]").on("click", function() {
             var attr_id = $(this).data("id");
@@ -370,14 +370,14 @@
                 $("#confirm-attrs").click(function(){
                     var input_attrs_item = '<div id="input-attrs-item-'+ attr_id +'" class="col-md-12 d-flex flex-wrap input_attrs_items"><div class="col-md-6"><input class="form-control text-center" type="text" value="'+ attr_name +'" disabled></div><div class="form-group col-md-6"><input id="qty-attr-'+ attr_id +'" class="form-control text-center qty-attr" name="qty_attr[]" type="number" placeholder="Nhập số lượng phân loại" required></div></div>';
                     if($('#input-attrs-item-' +attr_id).length < 1) $('.input-attrs').append(input_attrs_item);
-                    
+
                     // Số lượng input
                     $(".qty-attr").on("input",function() {
                         var total_qty = 0;
                         $(".qty-attr").each(function(){
                             if(!isNaN(parseInt($(this).val())))
                             {
-                                total_qty += parseInt($(this).val());  
+                                total_qty += parseInt($(this).val());
                             }
                         });
                         $("#Quantity").val(total_qty);
@@ -406,7 +406,7 @@
             }
             else if($(this).is(":not(:checked)")){
                 $("#attr-name-"+attr_id).removeClass("border-primary text-primary");
-                
+
                 $("#confirm-attrs").click(function(){
                     $('#input-attrs-item-' +attr_id).remove();
 
@@ -415,7 +415,7 @@
                     $(".qty-attr").each(function(){
                         if(!isNaN(parseInt($(this).val())))
                         {
-                            total_qty += parseInt($(this).val());  
+                            total_qty += parseInt($(this).val());
                         }
                     });
                     $("#Quantity").val(total_qty);
@@ -426,7 +426,7 @@
                 var idAttribute = $('.option-default').val();
                 var attr_group_name = $("#attr-group-"+idAttribute).data("attr-group-name");
                 console.log($('[name="chk_attr[]"]:checked').length);
-                
+
                 if($('[name="chk_attr[]"]:checked').length >= 1){
                     $('.attr-title-1').html(attr_group_name);
                     $('.attr-title-1').removeClass('d-none');
@@ -445,7 +445,7 @@
             $(".qty-attr").each(function(){
                 if(!isNaN(parseInt($(this).val())))
                 {
-                    total_qty += parseInt($(this).val());  
+                    total_qty += parseInt($(this).val());
                 }
             });
             $("#Quantity").val(total_qty);

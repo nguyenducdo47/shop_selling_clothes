@@ -27,7 +27,7 @@
                     <div class="card-body">
                         <form  method="post" action="{{URL::to('/submit-edit-blog/'.$blog->idBlog)}}" id="form-add-blog" data-toggle="validator" enctype="multipart/form-data">
                             @csrf
-                            <div class="row"> 
+                            <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="required">Tiêu đề</label>
@@ -43,7 +43,7 @@
                                         <div class="text-danger alert-img"></div>
                                         <div class="d-flex flex-wrap" id="image-list">
                                             <div id="image-item-0" class="image-item">
-                                                <img src="{{asset('public/storage/kidoldash/images/blog/'.$blog->BlogImage)}}" class="img-fluid rounded avatar-100 mr-3 mt-2">
+                                                <img src="{{asset('storage/kidoldash/images/blog/'.$blog->BlogImage)}}" class="img-fluid rounded avatar-100 mr-3 mt-2">
                                             </div>
                                         </div>
                                     </div>
@@ -115,13 +115,13 @@
 </script>
 
 <script>
-    $(document).ready(function(){  
+    $(document).ready(function(){
         CKEDITOR.instances['BlogContent'].on('change', function () {
             var messageLengthContent = CKEDITOR.instances['BlogContent'].getData().replace(/<[^>]*>/gi, '').length;
             if( !messageLengthContent ) {
                 $('.alert-contentblog').html("Vui lòng điền vào trường này.");
                 $('#btn-submit').addClass('disabled-button');
-                
+
             }else{
                 $('.alert-contentblog').html("");
                 $('#btn-submit').removeClass('disabled-button');
@@ -133,7 +133,7 @@
             if( !messageLengthDesc ) {
                 $('.alert-desblog').html("Vui lòng điền vào trường này.");
                 $('#btn-submit').addClass('disabled-button');
-                
+
             }else{
                 $('.alert-desblog').html("");
                 $('#btn-submit').removeClass('disabled-button');

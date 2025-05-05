@@ -34,8 +34,8 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <?php $image = json_decode($product->ImageName)[0];?>
-                                        <img src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" class="img-fluid rounded avatar-50 mr-3" alt="image">
-                                        <div>{{$product->ProductName}}</div>        
+                                        <img src="{{asset('storage/kidoldash/images/product/'.$image)}}" class="img-fluid rounded avatar-50 mr-3" alt="image">
+                                        <div>{{$product->ProductName}}</div>
                                     </div>
                                 </td>
                                 <td>{{$product->CategoryName}}</td>
@@ -92,7 +92,7 @@
 <!-- Page end  -->
 
 <script>
-    $(document).ready(function(){  
+    $(document).ready(function(){
         APP_URL = '{{url('/')}}' ;
 
         $('.btn-StatusPro').on('click',function(){

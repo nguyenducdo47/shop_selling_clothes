@@ -35,7 +35,7 @@
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <?php $image = json_decode($sale->ImageName)[0];?>
-                                        <img src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" class="img-fluid rounded avatar-50 mr-3" alt="image">
+                                        <img src="{{asset('storage/kidoldash/images/product/'.$image)}}" class="img-fluid rounded avatar-50 mr-3" alt="image">
                                         <div>{{$sale->ProductName}}</div>
                                     </div>
                                 </td>
@@ -46,7 +46,7 @@
                                     <div class="d-flex align-items-center list-action">
                                         <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Sửa"
                                             href="{{URL::to('/edit-sale/'.$sale->idSale.'/'.$sale->idProduct)}}"><i class="ri-pencil-line mr-0"></i></a>
-                                        
+
                                         <a class="badge bg-warning mr-2" data-toggle="modal" data-target="#modal-delete-{{$sale->idSale}}" data-placement="top" title="" data-original-title="Xóa"
                                             style="cursor:pointer;"><i class="ri-delete-bin-line mr-0"></i></a>
                                     </div>

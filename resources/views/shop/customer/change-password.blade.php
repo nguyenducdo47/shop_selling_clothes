@@ -75,12 +75,12 @@
 </div>
 <!--My Account End-->
 
-<script src="{{asset('public/kidolshop/js/jquery.validate.min.js')}}"></script>
+<script src="{{asset('kidolshop/js/jquery.validate.min.js')}}"></script>
 
 <script>
     window.scrollBy(0,300);
 
-    $(document).ready(function(){  
+    $(document).ready(function(){
         $('.change-password').on('click',function(){
             $("#form-change-password").validate({
                 rules: {
@@ -120,10 +120,10 @@
 
                     $.ajax({
                         url: APP_URL + '/submit-change-password',
-                        type: 'POST',   
+                        type: 'POST',
                         contentType: false,
-                        processData: false,   
-                        cache: false,        
+                        processData: false,
+                        cache: false,
                         data: formData,
                         success:function(data){
                             $('.alert-password').html(data);

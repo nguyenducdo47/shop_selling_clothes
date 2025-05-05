@@ -7,7 +7,7 @@
     <div class="swiper-container slider-active">
         <div class="swiper-wrapper">
             <!--Single Slider Start-->
-            <div class="single-slider swiper-slide animation-style-01" style="background-image: url('public/kidolshop/images/slider/KIDOLBanner.png');">
+            <div class="single-slider swiper-slide animation-style-01" style="background-image: url('kidolshop/images/slider/KIDOLBanner.png');">
                 <div class="container">
                     <div class="slider-content">
                         <h5 class="sub-title">Nhập: <span class="text-primary">SALE100K</span> <br> Giảm 100K cho mọi đơn hàng</h5>
@@ -23,7 +23,7 @@
             <!--Single Slider End-->
 
             <!--Single Slider Start-->
-            <div class="single-slider swiper-slide animation-style-01" style="background-image: url('public/kidolshop/images/slider/KIDOLBanner2.png');">
+            <div class="single-slider swiper-slide animation-style-01" style="background-image: url('kidolshop/images/slider/KIDOLBanner2.png');">
                 <div class="container" style="text-align:right;">
                     <div class="slider-content">
                         <h5 class="sub-title sub-title-right">Nhập: <span class="text-info">SALE100K</span> <br> Giảm 100K cho mọi đơn hàng</h5>
@@ -61,7 +61,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="single-shipping">
                     <div class="shipping-icon">
-                        <img src="public/kidolshop/images/shipping-icon/Free-Delivery.png" alt="">
+                        <img src="{{ asset('kidolshop/images/shipping-icon/Free-Delivery.png') }}" alt="">
                     </div>
                     <div class="shipping-content">
                         <h5 class="title">Miễn Phí Vận Chuyển</h5>
@@ -72,7 +72,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="single-shipping">
                     <div class="shipping-icon">
-                        <img src="public/kidolshop/images/shipping-icon/Online-Order.png" alt="">
+                        <img src="{{ asset('kidolshop/images/shipping-icon/Online-Order.png') }}" alt="">
                     </div>
                     <div class="shipping-content">
                         <h5 class="title">Đặt Hàng Online</h5>
@@ -83,7 +83,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="single-shipping">
                     <div class="shipping-icon">
-                        <img src="public/kidolshop/images/shipping-icon/Freshness.png" alt="">
+                        <img src="{{ asset('kidolshop/images/shipping-icon/Freshness.png') }}" alt="">
                     </div>
                     <div class="shipping-content">
                         <h5 class="title">Hiện Đại</h5>
@@ -94,17 +94,18 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="single-shipping">
                     <div class="shipping-icon">
-                        <img src="public/kidolshop/images/shipping-icon/Made-By-Artists.png" alt="">
+                        <img src="{{ asset('kidolshop/images/shipping-icon/Made-By-Artists.png') }}" alt="">
                     </div>
                     <div class="shipping-content">
                         <h5 class="title">Hỗ Trợ 24/7</h5>
-                        <p>Đội ngũ hỗ trợ trưc tuyến chuyên nghiệp</p>
+                        <p>Đội ngũ hỗ trợ trực tuyến chuyên nghiệp</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <!--Shipping End-->
 
 
@@ -113,7 +114,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-9 col-sm-11">
-                <div class="section-title text-center">
+                <div class="text-center section-title">
                     <h2 class="title">Gợi Ý Cho Bạn</h2>
                     <p>A perfect blend of creativity, energy, communication, happiness and love. Let us arrange a smile for you.</p>
                 </div>
@@ -135,7 +136,7 @@
                                 <div class="product-image">
                                     <?php $image = json_decode($product->ImageName)[0];?>
                                     <a href="{{URL::to('/shop-single/'.$product->ProductSlug)}}">
-                                        <img src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" alt="">
+                                        <img src="{{asset('storage/kidoldash/images/product/'.$image)}}" alt="">
                                     </a>
 
                                     <?php
@@ -163,7 +164,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="product-content text-center">
+                                <div class="text-center product-content">
                                     <!-- <ul class="rating">
                                         <li class="rating-on"><i class="fa fa-star-o"></i></li>
                                         <li class="rating-on"><i class="fa fa-star-o"></i></li>
@@ -191,7 +192,7 @@
                                 <div class="product-image">
                                     <?php $image = json_decode($product->ImageName)[0];?>
                                     <a href="{{URL::to('/shop-single/'.$product->ProductSlug)}}">
-                                        <img src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" alt="">
+                                        <img src="{{asset('storage/kidoldash/images/product/'.$image)}}" alt="">
                                     </a>
 
                                     <?php
@@ -219,7 +220,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="product-content text-center">
+                                <div class="text-center product-content">
                                     <!-- <ul class="rating">
                                         <li class="rating-on"><i class="fa fa-star-o"></i></li>
                                         <li class="rating-on"><i class="fa fa-star-o"></i></li>
@@ -258,7 +259,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-9 col-sm-11">
-                <div class="section-title text-center">
+                <div class="text-center section-title">
                     <h2 class="title">Sản Phẩm Mới</h2>
                     <p>A perfect blend of creativity, energy, communication, happiness and love. Let us arrange a smile for you.</p>
                 </div>
@@ -273,7 +274,7 @@
                             <div class="product-image">
                                 <?php $image = json_decode($new_pd->ImageName)[0];?>
                                 <a href="{{URL::to('/shop-single/'.$new_pd->ProductSlug)}}">
-                                    <img src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" alt="">
+                                    <img src="{{asset('storage/kidoldash/images/product/'.$image)}}" alt="">
                                 </a>
 
                                 <?php
@@ -301,7 +302,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="product-content text-center">
+                            <div class="text-center product-content">
                                 <!-- <ul class="rating">
                                     <li class="rating-on"><i class="fa fa-star-o"></i></li>
                                     <li class="rating-on"><i class="fa fa-star-o"></i></li>
@@ -339,7 +340,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="about-image">
-                    <img src="public/kidolshop/images/banner/banner_home.png" alt="">
+                    <img src="kidolshop/images/banner/banner_home.png" alt="">
                 </div>
             </div>
             <div class="col-lg-6">
@@ -367,7 +368,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-9 col-sm-11">
-                <div class="section-title text-center">
+                <div class="text-center section-title">
                     <h2 class="title">Sản Phẩm</h2>
                     <p>A perfect blend of creativity, energy, communication, happiness and love. Let us arrange a smile for you.</p>
                 </div>
@@ -398,7 +399,7 @@
                                     <div class="product-image">
                                         <?php $image = json_decode($bestsellers_pd->ImageName)[0];?>
                                         <a href="{{URL::to('/shop-single/'.$bestsellers_pd->ProductSlug)}}">
-                                            <img src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" alt="">
+                                            <img src="{{asset('storage/kidoldash/images/product/'.$image)}}" alt="">
                                         </a>
 
                                         <?php
@@ -426,7 +427,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="product-content text-center">
+                                    <div class="text-center product-content">
                                         <!-- <ul class="rating">
                                             <li class="rating-on"><i class="fa fa-star-o"></i></li>
                                             <li class="rating-on"><i class="fa fa-star-o"></i></li>
@@ -463,7 +464,7 @@
                                     <div class="product-image">
                                         <?php $image = json_decode($featured_pd->ImageName)[0];?>
                                         <a href="{{URL::to('/shop-single/'.$featured_pd->ProductSlug)}}">
-                                            <img src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" alt="">
+                                            <img src="{{asset('storage/kidoldash/images/product/'.$image)}}" alt="">
                                         </a>
 
                                         <?php
@@ -491,7 +492,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="product-content text-center">
+                                    <div class="text-center product-content">
                                         <!-- <ul class="rating">
                                             <li class="rating-on"><i class="fa fa-star-o"></i></li>
                                             <li class="rating-on"><i class="fa fa-star-o"></i></li>
@@ -533,7 +534,7 @@
                                     <div class="product-image">
                                         <?php $image = json_decode($featured_pd->ImageName)[0];?>
                                         <a href="{{URL::to('/shop-single/'.$featured_pd->ProductSlug)}}">
-                                            <img src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" alt="">
+                                            <img src="{{asset('storage/kidoldash/images/product/'.$image)}}" alt="">
                                         </a>
 
                                         <?php $SalePrice = $featured_pd->Price - ($featured_pd->Price/100) * $get_time_sale->Percent; ?>
@@ -553,7 +554,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="product-content text-center">
+                                    <div class="text-center product-content">
                                         <!-- <ul class="rating">
                                             <li class="rating-on"><i class="fa fa-star-o"></i></li>
                                             <li class="rating-on"><i class="fa fa-star-o"></i></li>
@@ -596,7 +597,7 @@
         <div class="swiper-container testimonial-active">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <div class="single-testimonial text-center">
+                    <div class="text-center single-testimonial">
                         <p>Felis eu pede mollis pretium. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus lingua. felis eu pede mollis pretium.</p>
 
                         <div class="testimonial-author">
@@ -606,7 +607,7 @@
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="single-testimonial text-center">
+                    <div class="text-center single-testimonial">
                         <p>Felis eu pede mollis pretium. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus lingua. felis eu pede mollis pretium.</p>
 
                         <div class="testimonial-author">
@@ -632,7 +633,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-9 col-sm-11">
-                <div class="section-title text-center">
+                <div class="text-center section-title">
                     <h2 class="title">Flower Experts</h2>
                     <p>A perfect blend of creativity, energy, communication, happiness and love. Let us arrange a smile for you.</p>
                 </div>
@@ -641,7 +642,7 @@
         <div class="expert-wrapper">
             <div class="row">
                 <div class="col-lg-3 col-sm-6">
-                    <div class="single-expert text-center">
+                    <div class="text-center single-expert">
                         <div class="expert-image">
                             <img src="public/kidolshop/images/experts/team-1.jpg" alt="">
                         </div>
@@ -652,7 +653,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
-                    <div class="single-expert text-center">
+                    <div class="text-center single-expert">
                         <div class="expert-image">
                             <img src="public/kidolshop/images/experts/team-2.jpg" alt="">
                         </div>
@@ -663,7 +664,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
-                    <div class="single-expert text-center">
+                    <div class="text-center single-expert">
                         <div class="expert-image">
                             <img src="public/kidolshop/images/experts/team-3.jpg" alt="">
                         </div>
@@ -674,7 +675,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
-                    <div class="single-expert text-center">
+                    <div class="text-center single-expert">
                         <div class="expert-image">
                             <img src="public/kidolshop/images/experts/team-4.jpg" alt="">
                         </div>
@@ -697,7 +698,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-9 col-sm-11">
-                <div class="section-title text-center">
+                <div class="text-center section-title">
                     <h2 class="title">Bài Viết Của Chúng Tôi</h2>
                     <p>A perfect blend of creativity, energy, communication, happiness and love. Let us arrange a smile for you.</p>
                 </div>
@@ -710,14 +711,14 @@
                     <div class="swiper-slide">
                         <div class="single-blog">
                             <div class="blog-image">
-                                <a href="{{URL::to('/blog/'.$blog->BlogSlug)}}"><img src="{{asset('public/storage/kidoldash/images/blog/'.$blog->BlogImage)}}" alt=""></a>
+                                <a href="{{URL::to('/blog/'.$blog->BlogSlug)}}"><img src="{{asset('storage/kidoldash/images/blog/'.$blog->BlogImage)}}" alt=""></a>
                             </div>
                             <div class="blog-content">
                                 <h4 class="title"><a href="{{URL::to('/blog/'.$blog->BlogSlug)}}">{{$blog->BlogTitle}}</a></h4>
                                 <div class="articles-date">
                                     <p><span>{{$blog->created_at}}</span></p>
                                 </div>
-                                <div class="four-line mb-4">{!!$blog->BlogDesc!!}</div>
+                                <div class="mb-4 four-line">{!!$blog->BlogDesc!!}</div>
 
                                 <div class="blog-footer">
                                     <a class="more" href="{{URL::to('/blog/'.$blog->BlogSlug)}}">Tìm hiểu thêm</a>
@@ -742,7 +743,7 @@
 <!-- <div class="newsletter-area section-padding-5">
     <div class="container">
         <div class="newsletter-form">
-            <div class="section-title text-center">
+            <div class="text-center section-title">
                 <h2 class="title">Join The Colorful Bunch!</h2>
             </div>
             <div class="form-wrapper">

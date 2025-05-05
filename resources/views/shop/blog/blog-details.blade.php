@@ -36,7 +36,7 @@
                         <li>
                             <div class="single-post">
                                 <div class="post-thumb">
-                                    <a href="{{URL::to('/blog/'.$new_blog->BlogSlug)}}"><img src="{{asset('public/storage/kidoldash/images/blog/'.$new_blog->BlogImage)}}" alt=""></a>
+                                    <a href="{{URL::to('/blog/'.$new_blog->BlogSlug)}}"><img src="{{asset('storage/kidoldash/images/blog/'.$new_blog->BlogImage)}}" alt=""></a>
                                 </div>
                                 <div class="post-content">
                                     <div class="post-title"><a class="two-line" href="{{URL::to('/blog/'.$new_blog->BlogSlug)}}">{{$new_blog->BlogTitle}}</a></div>

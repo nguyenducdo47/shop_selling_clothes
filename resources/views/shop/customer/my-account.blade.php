@@ -4,7 +4,7 @@
 <!--Page Banner Start-->
 <div class="page-banner" style="background-image: url(public/kidolshop/images/oso.png);">
     <div class="container">
-        <div class="page-banner-content text-center">
+        <div class="text-center page-banner-content">
             <h2 class="title">Tài khoản của tôi</h2>
             <ol class="breadcrumb justify-content-center">
                 <li class="breadcrumb-item"><a href="{{URL::to('/home')}}">Trang chủ</a></li>
@@ -48,11 +48,11 @@
                                         </div>
                                         <form id="form-edit-profile" style="display:flex; padding: 0;" enctype="multipart/form-data">
                                             @csrf
-                                            <div class="col-md-8 mt-10">
+                                            <div class="mt-10 col-md-8">
                                                 <div class="account-address">
                                                     <div class="profile__info-body-left-item">
                                                         <span class="profile__info-body-left-item-title">Tên Đăng Nhập</span>
-                                                        <span class="profile__info-body-left-item-text ml-20">{{$customer->username}}</span>
+                                                        <span class="ml-20 profile__info-body-left-item-text">{{$customer->username}}</span>
                                                     </div>
                                                     <div class="form-group mb-30">
                                                         <span for="CustomerName" class="profile__info-body-left-item-title" style="margin: 0 28px 0 52px;">Họ Và Tên</span>
@@ -65,20 +65,21 @@
                                                     <button class="btn btn-primary edit-profile" style="float: right;"><i class="fa fa-edit"></i> Sửa Hồ Sơ</button>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 mt-10 d-flex align-items-center justify-content-center" style="border-left: solid 1px #efefef; margin: 0 12px;">
+                                            <div class="mt-10 col-md-4 d-flex align-items-center justify-content-center" style="border-left: solid 1px #efefef; margin: 0 12px;">
                                                 <div class="profile__info-body-right-avatar">
                                                     <div class="profile-img-edit">
                                                         <div class="crm-profile-img-edit">
                                                             @if($customer->Avatar != null)
-                                                            <img class="crm-profile-pic rounded-circle avatar-100 replace-avt" src="public/storage/kidoldash/images/customer/{{$customer->Avatar}}">
-                                                            @else <img class="crm-profile-pic rounded-circle avatar-100 replace-avt" src="public/kidoldash/images/user/1.png"> @endif
+                                                            <img class="crm-profile-pic rounded-circle avatar-100 replace-avt" src="{{ asset('storage/kidoldash/images/customer/' . $customer->Avatar) }}">
+                                                            @else <img class="crm-profile-pic rounded-circle avatar-100 replace-avt" src="{{ asset('kidoldash/images/user/1.png') }}">
+                                                            @endif
                                                             <div class="crm-p-image bg-primary">
                                                                 <label for="Avatar" style="cursor:pointer;"><span class="ti-pencil upload-button d-block"></span></label>
                                                                 <input type="file" class="file-upload" id="Avatar" name="Avatar" onchange="loadPreview(this)" accept="image/*">
                                                             </div>
-                                                        </div>                                          
+                                                        </div>
                                                     </div>
-                                                    <div class="text-danger alert-img mt-3 ml-3 mr-3"></div>
+                                                    <div class="mt-3 ml-3 mr-3 text-danger alert-img"></div>
                                                     <div class="mt-30">
                                                         <span class="profile__info-body-right-avatar-condition-item">Dung lượng file tối đa 2MB</span>
                                                         <span class="profile__info-body-right-avatar-condition-item">Định dạng: .JPEG, .PNG</span>
@@ -98,12 +99,12 @@
 </div>
 <!--My Account End-->
 
-<script src="{{asset('public/kidolshop/js/jquery.validate.min.js')}}"></script>
+<script src="{{asset('kidolshop/js/jquery.validate.min.js')}}"></script>
 
 <script>
     window.scrollBy(0,300);
 
-    $(document).ready(function(){  
+    $(document).ready(function(){
         $('.edit-profile').on('click',function(){
             $("#form-edit-profile").validate({
                 rules: {
@@ -139,10 +140,10 @@
 
                     $.ajax({
                         url: APP_URL + '/edit-profile',
-                        type: 'POST',   
+                        type: 'POST',
                         contentType: false,
-                        processData: false,   
-                        cache: false,        
+                        processData: false,
+                        cache: false,
                         data: formData,
                         success:function(data){
                             location.reload();

@@ -7,8 +7,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-4">
-                <div class="card card-transparent card-block card-stretch card-height border-none">
-                    <div class="card-body p-0 mt-lg-2 mt-0">
+                <div class="border-none card card-transparent card-block card-stretch card-height">
+                    <div class="p-0 mt-0 card-body mt-lg-2">
                         <h3 class="mb-3">Hi <?php echo Session::get('AdminName'); ?>, Good Morning</h3>
                         <p class="mb-0 mr-4">
                             Trang tổng quan của bạn cung cấp cho bạn các quan điểm về hiệu suất chính hoặc quy trình kinh doanh.
@@ -21,36 +21,36 @@
                     <div class="col-lg-6 col-md-4">
                         <div class="card card-block card-stretch card-height">
                             <div class="card-body">
-                                <div class="d-flex align-items-center mb-4 card-total-sale">
+                                <div class="mb-4 d-flex align-items-center card-total-sale">
                                     <div class="icon iq-icon-box-2 bg-info-light">
-                                        <img src="public/kidoldash/images/product/1.png" class="img-fluid" alt="image">
+                                        <img src="{{ asset('kidoldash/images/product/1.png') }}" class="img-fluid" alt="image">
                                     </div>
                                     <div>
                                         <p class="mb-2">Tổng Doanh Thu</p>
                                         <h4>{{number_format($total_revenue,0,',','.')}}đ</h4>
                                     </div>
-                                </div>                                
-                                <div class="iq-progress-bar mt-2">
+                                </div>
+                                <div class="mt-2 iq-progress-bar">
                                     <span class="bg-info iq-progress progress-1" data-percent="85">
                                     </span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-6 col-md-4">
                         <div class="card card-block card-stretch card-height">
                             <div class="card-body">
-                                <div class="d-flex align-items-center mb-4 card-total-sale">
+                                <div class="mb-4 d-flex align-items-center card-total-sale">
                                     <div class="icon iq-icon-box-2 bg-success-light">
-                                        <img src="public/kidoldash/images/product/3.png" class="img-fluid" alt="image">
+                                        <img src="{{ asset('kidoldash/images/product/3.png') }}" class="img-fluid" alt="image">
                                     </div>
                                     <div>
                                         <p class="mb-2">Tổng Sản Phầm Bán Ra</p>
                                         <h4>{{number_format($total_sell,0,',','.')}} sản phẩm</h4>
                                     </div>
                                 </div>
-                                <div class="iq-progress-bar mt-2">
+                                <div class="mt-2 iq-progress-bar">
                                     <span class="bg-success iq-progress progress-1" data-percent="75">
                                     </span>
                                 </div>
@@ -66,16 +66,16 @@
                         <div class="header-title">
                             <h4 class="card-title">Doanh Thu Cửa Hàng</h4>
                         </div>
-                        <form class="col-lg-6 p-0"> @csrf
+                        <form class="p-0 col-lg-6"> @csrf
                         <div class="row">
-                            <input type='text' name="DateFrom" id='DateFrom' placeholder="Từ ngày" class="form-control ml-2" style="width:44%;"/>
-                            <input type='text' name="DateTo" id='DateTo' placeholder="Đến ngày" class="form-control ml-2" style="width:44%;"/>
-                            <button type="button" class="badge badge-info p-0 statistic-btn" style="border:none; width:7%; margin-left:12px; font-size:20px;" data-toggle="tooltip" data-placement="top" title="" 
+                            <input type='text' name="DateFrom" id='DateFrom' placeholder="Từ ngày" class="ml-2 form-control" style="width:44%;"/>
+                            <input type='text' name="DateTo" id='DateTo' placeholder="Đến ngày" class="ml-2 form-control" style="width:44%;"/>
+                            <button type="button" class="p-0 badge badge-info statistic-btn" style="border:none; width:7%; margin-left:12px; font-size:20px;" data-toggle="tooltip" data-placement="top" title=""
                                 data-original-title="Tìm kiếm"><i class="ri-search-line"></i>
                             </button>
                         </div>
                         </form>
-                        <form class="col-lg-3 p-0"> @csrf
+                        <form class="p-0 col-lg-3"> @csrf
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <label class="input-group-text" for="chart-by-days">Lọc theo</label>
@@ -93,7 +93,7 @@
                         <div id="chart-sale" style="height: 250px;"></div>
                     </div>
                 </div>
-            </div>  
+            </div>
             <div class="col-lg-8">
                 <div class="card card-block card-stretch card-height">
                     <div class="card-header d-flex align-items-center justify-content-between">
@@ -104,9 +104,9 @@
                             <div class="dropdown">
                                 <span class="dropdown-toggle dropdown-bg btn" id="dropdownMenuButton006"
                                     data-toggle="dropdown">
-                                    <span class="topPro-default">Trong Tháng</span><i class="ri-arrow-down-s-line ml-1"></i>
+                                    <span class="topPro-default">Trong Tháng</span><i class="ml-1 ri-arrow-down-s-line"></i>
                                 </span>
-                                <div class="dropdown-menu dropdown-menu-right shadow-none"
+                                <div class="shadow-none dropdown-menu dropdown-menu-right"
                                     aria-labelledby="dropdownMenuButton006">
                                     <button type="button" class="dropdown-item select-topPro">Trong Năm</button>
                                     <button type="button" class="dropdown-item select-topPro">Trong Tháng</button>
@@ -116,16 +116,16 @@
                         </div>
                     </div>
                     <div class="card-body list-topPro" style="padding-bottom:4px;">
-                        <ul class="list-unstyled row mb-0">
+                        <ul class="mb-0 list-unstyled row">
                             @foreach($list_topProduct as $key => $topProduct)
                             <li class="col-lg-4 topPro-item">
-                                <div class="card card-block card-stretch mb-0">
+                                <div class="mb-0 card card-block card-stretch">
                                     <div class="card-body">
-                                        <div class="bg-warning-light rounded">
+                                        <div class="rounded bg-warning-light">
                                             <?php $image = json_decode($topProduct->ImageName)[0];?>
-                                            <img src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" class="style-img img-fluid m-auto p-3" alt="image">
+                                            <img src="{{asset('storage/kidoldash/images/product/'.$image)}}" class="p-3 m-auto style-img img-fluid" alt="image">
                                         </div>
-                                        <div class="style-text text-left mt-3">
+                                        <div class="mt-3 text-left style-text">
                                             <h5 class="mb-1 limit-2-lines">{{$topProduct->ProductName}}</h5>
                                             <p class="mb-0">Đã bán: {{number_format($topProduct->Sold,0,',','.')}}</p>
                                         </div>
@@ -137,11 +137,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">  
-                <div class="card card-transparent card-block card-stretch mb-4">
-                    <div class="card-header d-flex align-items-center justify-content-between p-0">
+            <div class="col-lg-4">
+                <div class="mb-4 card card-transparent card-block card-stretch">
+                    <div class="p-0 card-header d-flex align-items-center justify-content-between">
                         <div class="header-title">
-                            <h4 class="card-title mb-0">Best Product All Time</h4>
+                            <h4 class="mb-0 card-title">Best Product All Time</h4>
                         </div>
                     </div>
                 </div>
@@ -151,9 +151,9 @@
                         <div class="d-flex align-items-top">
                             <div class="iq-avatar d-flex align-items-center">
                                 <?php $image = json_decode($topProduct_AllTime->ImageName)[0];?>
-                                <img src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" class="p-0 avatar-100 style-img img-fluid m-auto rounded" alt="image">
+                                <img src="{{asset('storage/kidoldash/images/product/'.$image)}}" class="p-0 m-auto rounded avatar-100 style-img img-fluid" alt="image">
                             </div>
-                            <div class="style-text text-left">
+                            <div class="text-left style-text">
                                 <h5 class="mb-2 limit-2-lines">{{$topProduct_AllTime->ProductName}}</h5>
                                 <span class="mb-2">Tổng đã bán: {{number_format($topProduct_AllTime->Sold,0,',','.')}}</span>
                                 <p class="mb-0">Tổng doanh thu: {{number_format($topProduct_AllTime->Sold * $topProduct_AllTime->Price,0,',','.')}}đ</p>
@@ -162,7 +162,7 @@
                     </div>
                     @endforeach
                 </div>
-            </div>   
+            </div>
         </div>
     </div>
 </div>
@@ -170,7 +170,7 @@
 
 <!-- Tạo datetimepicker form -->
 <script>
-    $(document).ready(function(){  
+    $(document).ready(function(){
         APP_URL = '{{url('/')}}' ;
         jQuery.datetimepicker.setLocale('vi');
         jQuery(function(){
@@ -206,7 +206,7 @@
             pointStrokeColors: ['black'],
             fillOpacity: 1,
             hideHover: 'auto',
-            parseTime: false, 
+            parseTime: false,
             xkey: 'Date',
             ykeys: ['TotalSold','Sale','QtyBill'],
             behaveLikeLine: true,
@@ -262,7 +262,7 @@
             var Days = $(this).html();
             var _token = $('input[name="_token"]').val();
             var sort_by = '';
-            
+
             $('.topPro-default').html(Days);
             if(Days == 'Trong Tuần') sort_by = 'week';
             else if(Days == 'Trong Tháng') sort_by = 'month';

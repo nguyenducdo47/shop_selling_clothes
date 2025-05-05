@@ -29,7 +29,7 @@
                         <td style="width:30%; vertical-align:unset;">
                             <div class="product-image-title">
                                 <?php $image = json_decode($compare->ImageName)[0];?>
-                                <a class="product-image" href="{{URL::to('/shop-single/'.$compare->ProductSlug)}}"><img src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" alt="product"></a>
+                                <a class="product-image" href="{{URL::to('/shop-single/'.$compare->ProductSlug)}}"><img src="{{asset('storage/kidoldash/images/product/'.$image)}}" alt="product"></a>
                                 <h5 class="title"><a class="view-hover" href="{{URL::to('/shop-single/'.$compare->ProductSlug)}}">{{$compare->ProductName}}</a></h5>
                             </div>
                         </td>
@@ -45,8 +45,8 @@
                         <th>Giá</th>
                         @foreach($list_compare as $key => $compare)
                             <?php
-                                $SalePrice = $compare->Price;  
-                                $get_time_sale = ProductController::get_sale_pd($compare->idProduct); 
+                                $SalePrice = $compare->Price;
+                                $get_time_sale = ProductController::get_sale_pd($compare->idProduct);
                                 if($get_time_sale) $SalePrice = $SalePrice - ($SalePrice/100) * $get_time_sale->Percent;
                             ?>
                         <td><span class="current-price text-primary">{{number_format(round($SalePrice,-3),0,',','.')}}đ</span></td>

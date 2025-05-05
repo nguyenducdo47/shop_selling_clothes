@@ -95,7 +95,7 @@
                                     <div class="product-image">
                                         <?php $image = json_decode($pd->ImageName)[0];?>
                                         <a href="{{URL::to('/shop-single/'.$pd->ProductSlug)}}">
-                                            <img src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" alt="">
+                                            <img src="{{asset('storage/kidoldash/images/product/'.$image)}}" alt="">
                                         </a>
 
                                         <?php
@@ -152,7 +152,7 @@
                             <div class="product-image">
                                 <?php $image = json_decode($pd->ImageName)[0];?>
                                 <a href="{{URL::to('/shop-single/'.$pd->ProductSlug)}}">
-                                    <img src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" alt="">
+                                    <img src="{{asset('storage/kidoldash/images/product/'.$image)}}" alt="">
                                 </a>
 
                                 <?php
@@ -345,7 +345,7 @@
                                     <div class="product-image">
                                         <?php $image = json_decode($top_pd->ImageName)[0];?>
                                         <a href="{{URL::to('/shop-single/'.$top_pd->ProductSlug)}}">
-                                            <img src="{{asset('public/storage/kidoldash/images/product/'.$image)}}" alt="">
+                                            <img src="{{asset('storage/kidoldash/images/product/'.$image)}}" alt="">
                                         </a>
                                     </div>
                                     <div class="product-content">
